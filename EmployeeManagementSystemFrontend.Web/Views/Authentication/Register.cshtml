@@ -1,0 +1,156 @@
+@{
+    Layout = null;
+}
+@model UserRegistrationDto;
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Register - Employee Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/css/register.css">
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+
+<body>
+    <div class="register-container">
+        <h2 class="text-center">Register</h2>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+        }
+
+        <form method="post" action="@Url.Action("Register", "Authentication")">
+            <div class="row pt-4">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="registerFirstName" asp-for="FirstName"
+                            placeholder="">
+                        <label for="registerFirstName">First Name*</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="registerLastName" asp-for="LastName" placeholder="">
+                        <label for="registerLastName">Last Name*</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pt-4">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="registerUsername" asp-for="UserName" placeholder="">
+                        <label for="registerUsername">User Name*</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="registerEmail" asp-for="Email" placeholder="">
+                        <label for="registerEmail">Email*</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pt-4">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="registerPassword" asp-for="Password"
+                            placeholder="">
+                        <label for="registerPassword">Password*</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="registerMobileNo" asp-for="MobileNo" placeholder="">
+                        <label for="registerMobileNo">Phone*</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4">
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="registerAddress"
+                        style="height: 100px"></textarea>
+                    <label for="registerAddress">Address*</label>
+                </div>
+            </div>
+
+            <div class="row pt-4">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="registerZipcode" asp-for="Zipcode" placeholder="">
+                        <label for="registerZipcode">Zipcode*</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select class="form-select" id="registerRoleId" asp-for="RoleId">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label for="registerRoleId">Role*</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4 pt-4">
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <select class="form-select" id="registerCountryId" asp-for="CountryId">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label for="registerCountryId">Country*</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <select class="form-select" id="registerStateId" asp-for="StateId">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label for="registerStateId">State*</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <select class="form-select" id="registerCityId" asp-for="CityId">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label for="registerCityId">City*</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-grid mb-3">
+                <button type="submit" class="btn btn-primary text-white">Register</button>
+            </div>
+
+            <div class="text-center">
+                <a href="@Url.Action("Login", "Authentication")" class="text-decoration-none text-info">Already have an
+                    account? Login</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        
+    });
