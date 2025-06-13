@@ -1,0 +1,27 @@
+.departmentsCol {
+  /* background-color: ; */
+}
+
+.container-departments {
+  padding: 0%;
+}
+
+#departmentsAndEmployeesDepartmentsContainer {
+  height: 530px;
+}
+
+.employees-col {
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.employees-container {
+  /* background-color: #f5f5f5; */
+  min-height: 530px;
+  position: relative;
+}
+
+.plus-square-icon{
+    height: 60px;
+    width: 60px;
+}

@@ -1,10 +1,8 @@
+using EmployeeManagementSystemFrontend.Web.Common;
 using EmployeeManagementSystemFrontend.Web.Dtos;
-using EmployeeManagementSystemFrontend.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System.Net.Http.Headers;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace EmployeeManagementSystemFrontend.Web.Controllers
 {
@@ -47,18 +45,18 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
             var content = new StringContent(JsonConvert.SerializeObject(loginDto), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync("http://localhost:5287/api/authentication/Login", content);
 
-            if (response.IsSuccessStatusCode)
+            var responseContent = await response.Content.ReadAsStringAsync();
+
+            var apiResponse = JsonConvert.DeserializeObject<ApiResponse<UserLoginDto>>(responseContent);
+
+            if (response.IsSuccessStatusCode && apiResponse != null && apiResponse.Success)
             {
-                var result = await response.Content.ReadAsStringAsync();
-                var responseObject = JsonConvert.DeserializeObject<dynamic>(result);
-                string message = responseObject!.Message; 
-                string success = responseObject.Success; 
-                ViewBag.Message = message;
+                ViewBag.Message = apiResponse.Message;
                 return RedirectToAction("VerifyOtp", "Authentication");
             }
-            var error = await response.Content.ReadAsStringAsync();
-            ViewBag.Error = error;
 
+            ViewBag.Error = apiResponse?.Message ?? "Login failed.";
+            ViewBag.Errors = apiResponse?.ValidationErrors;
             return View();
         }
 
@@ -72,19 +70,21 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> VerifyOtp(string email, string otp)
         {
-            var content = new StringContent($"email={email}&otp={otp}", Encoding.UTF8, "application/x-www-form-urlencoded");
-            var response = await _httpClient.PostAsync($"http://localhost:5287/api/authentication/Varify-OTP?email={email}&otp={otp}", content);
+            var response = await _httpClient.PostAsync($"http://localhost:5287/api/authentication/Verify-OTP?email={email}&otp={otp}", null);
+            var content = await response.Content.ReadAsStringAsync();
 
-            if (response.IsSuccessStatusCode)
+            var apiResponse = JsonConvert.DeserializeObject<ApiResponse<object>>(content);
+
+            if (response.IsSuccessStatusCode && apiResponse?.Success == true)
             {
-                var result = await response.Content.ReadAsStringAsync();
-                return RedirectToAction("Login");
+                return RedirectToAction("Index", "Home");
             }
 
-            var error = await response.Content.ReadAsStringAsync();
-            ViewBag.Error = error;
+            ViewBag.Error = apiResponse?.Message;
+            ViewBag.Errors = apiResponse?.ValidationErrors;
             return View();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> RefreshToken([FromBody] TokenRefreshRequestDto refreshRequestDto)

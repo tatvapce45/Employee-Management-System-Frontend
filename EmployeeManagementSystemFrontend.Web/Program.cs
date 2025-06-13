@@ -3,7 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient("EmployeeManagementApi", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:5287");
+    client.BaseAddress = new Uri("http://localhost:5287");
     client.DefaultRequestHeaders.Add("Accept", "application/json");
 })
 .ConfigurePrimaryHttpMessageHandler(() =>

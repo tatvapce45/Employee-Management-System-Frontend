@@ -1,0 +1,113 @@
+@model DepartmentsDto
+
+<div class="container-fluid sectionsScrollContainer overflow-auto mb-5">
+    @if (Model.Departments.Count != 0)
+    {
+        @foreach (var department in Model.Departments)
+        {
+            <div class="row sectionsRows mt-1 pt-2 pb-2" id="section-@department.Id"
+                onclick="setActiveSection('@department.Id', '@department.Name','section-@department.Id');setSelectedSection('@department.Id')"
+                style=" cursor: pointer;border-radius: 5px;" tabindex="0">
+                <div class="col-8 menuPageSectionCol">
+                    <div class="container-fluid menuPageSectionContainer d-flex align-items-center p-0">
+                        <img src="/images/icons/draggabledots-svgrepo-com.svg" class="iconBeforeMenuCategories"
+                            id="imageFor @department.Name" />
+                        <span id="@department.Name">@department.Name</span>
+                    </div>
+                </div>
+                <div class="col-4 menuPageSectionEditDeleteIconCol d-flex align-items-center p-0">
+                    <div
+                        class="container-fluid d-flex justify-content-end editDeleteIconContainer gap-3 pe-2 menuPageSectionEditDeleteIconContainer">
+                        <a>
+                            <img src="/images/icons/edit-button-svgrepo-com.svg" class="editIcon"
+                                id="editImageFor @department.Name"/>
+                        </a>
+                        <a>
+                            <img src="/images/icons/edit-delete-svgrepo-com.svg" class="deleteIcon"
+                                id="deleteImageFor @department.Name"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="row">
+            <div class="container-fluid d-flex justify-content-center align-items-center pt-5">
+                <div>
+                    <img src="/images/icons/exclamation-circle.svg" class="noDataFoundImg">
+                </div>
+                <div>
+                    <span class="text-danger fontWeight500 ps-2 noListFoundText">No Sections Found!</span>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+        var activeSectionId = localStorage.getItem('activeSection');
+        var firstSection = document.querySelector('.sectionsRows');
+        if (!activeSectionId && firstSection) {
+            let sectionRowId = firstSection ? firstSection.id : null;
+            let firstSectionName = firstSection.querySelector('span').id;
+            let sectionId = sectionRowId.split('-')[1];
+            setActiveSection(sectionId, firstSectionName, sectionRowId);
+        }
+        else if (activeSectionId) {
+            var activeSectionElement = document.getElementById("section-" + activeSectionId);
+            if (activeSectionElement) {
+                let sectionName = activeSectionElement.querySelector('span').id;
+                setActiveSection(activeSectionId, sectionName, activeSectionElement.id);
+            }
+        }
+    })
+
+    function changeSectionListDivColor(passedTextId, passedImageId, imgName, editImageDivId, editImage, deleteImageDivId, deleteImage, sectionRowId) {
+        document.getElementById(sectionRowId).style.backgroundColor = "#E9E9E9";
+        document.getElementById(sectionRowId).style.transition = "0.5s";
+        document.getElementById(passedTextId).style.color = "#1b65a1";
+        document.getElementById(passedTextId).style.transition = "0.5s";
+        document.getElementById(passedImageId).src = imgName;
+        document.getElementById(editImageDivId).src = editImage;
+        document.getElementById(deleteImageDivId).src = deleteImage;
+    }
+    function changeSectionListDivToNormalColor(passedTextId, passedImageId, imgName, editImageDivId, editImage, deleteImageDivId, deleteImage, sectionRowId) {
+        document.getElementById(sectionRowId).style.backgroundColor = "#f5f5f5";
+        document.getElementById(passedTextId).style.color = "";
+        document.getElementById(passedImageId).src = imgName;
+        document.getElementById(editImageDivId).src = editImage;
+        document.getElementById(deleteImageDivId).src = deleteImage;
+    }
+
+    function setActiveSection(sectionId, sectionName, sectionRowId) {
+        localStorage.setItem('activeSection', sectionId);
+        changeSectionListDivColor(sectionName, 'imageFor ' + sectionName, '/images/icons/draggabledots-svgrepo-com-active.svg',
+            'editImageFor ' + sectionName, '/images/icons/edit-button-svgrepo-com-active.svg',
+            'deleteImageFor ' + sectionName, '/images/icons/edit-delete-svgrepo-com-active.svg', sectionRowId);
+        resetOtherSections(sectionId, sectionRowId);
+        loadTablesIn_tableAndSectionTableListLoaderDiv(sectionId, "", "");
+    }
+    function resetOtherSections(activeSectionId, sectionRowId) {
+        let sections = document.querySelectorAll('.sectionsRows');
+        sections.forEach(function (section) {
+            let sectionId = section.id.split('-')[1];
+            var sectionRowId1 = "section-" + sectionId;
+            var sectionRowId2;
+            if (sectionRowId == sectionRowId1) {
+                sectionRowId2 = "";
+            }
+            else {
+                sectionRowId2 = sectionRowId1;
+            }
+            if (sectionId !== activeSectionId) {
+                let sectionName = section.querySelector('span').id;
+                changeSectionListDivToNormalColor(sectionName, 'imageFor ' + sectionName, '/images/icons/draggabledots-svgrepo-com.svg',
+                    'editImageFor ' + sectionName, '/images/icons/edit-button-svgrepo-com.svg',
+                    'deleteImageFor ' + sectionName, '/images/icons/edit-delete-svgrepo-com.svg', sectionRowId2);
+            }
+        });
+    }
+</script>

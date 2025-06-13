@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets\\EmployeeManagementSystemFrontend.Web.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\css\\employeesAndDepartments.css",
+      "PackagePath": "staticwebassets\\css\\employeesAndDepartments.css"
+    },
+    {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\css\\register.css",
+      "PackagePath": "staticwebassets\\css\\register.css"
     },
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\css\\site.css",
@@ -19,6 +27,54 @@
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\arrow-clockwise.svg",
+      "PackagePath": "staticwebassets\\images\\arrow-clockwise.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\bell-fill.svg",
+      "PackagePath": "staticwebassets\\images\\bell-fill.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\box-arrow-right.svg",
+      "PackagePath": "staticwebassets\\images\\box-arrow-right.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\chevron-left.svg",
+      "PackagePath": "staticwebassets\\images\\chevron-left.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\dashboard-active.svg",
+      "PackagePath": "staticwebassets\\images\\dashboard-active.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\dashboard.svg",
+      "PackagePath": "staticwebassets\\images\\dashboard.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\menu-bar.svg",
+      "PackagePath": "staticwebassets\\images\\menu-bar.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\person-circle.svg",
+      "PackagePath": "staticwebassets\\images\\person-circle.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\person-workspace.svg",
+      "PackagePath": "staticwebassets\\images\\person-workspace.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\plus-square-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\plus-square-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\users.svg",
+      "PackagePath": "staticwebassets\\images\\users.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\js\\employeesAndDepartments.js",
+      "PackagePath": "staticwebassets\\js\\employeesAndDepartments.js"
     },
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\js\\site.js",

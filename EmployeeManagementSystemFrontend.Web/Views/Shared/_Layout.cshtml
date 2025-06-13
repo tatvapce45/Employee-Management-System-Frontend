@@ -1,5 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+}
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,42 +13,150 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/EmployeeManagementSystemFrontend.Web.styles.css" asp-append-version="true" />
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">EmployeeManagementSystemFrontend.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <div class="container-fluid p-0">
+        <div id="mySideBar" class="side-bar pt-1">
+            <div class="container-fluid text-white">
+                <div class="row d-flex align-items-center justify-content-start">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <h1 class="d-inline text-white">Side</h1>
+                        <h1 class="pe-2 sidebar-header">bar</h1>
+                        <div id="sidebarLeftIcon" onclick="closeNavbar()">
+                            <img src="~/images/chevron-left.svg" style="height: 25px;width:25px" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row menuRow @(currentController == "Home" ? "checked-element" : "")"
+                    style="margin-top: 20px;">
+                    <a asp-action="Index" asp-controller="Home" class="menuRowLinks"
+                        style="text-decoration: none;color:inherit;font-size: medium;">
+                        <div class="col d-flex align-items-center gap-2">
+                            <img src="/images/dashboard.svg" alt="dashboard" class="menubarIcons">
+                            <span>Dashboard</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="row menuRow @(currentController == "Users" ? "checked-element" : "")">
+                    <a asp-action="Index" asp-controller="Home" class="menuRowLinks"
+                        style="text-decoration: none;color:inherit;font-size: medium;">
+                        <div class="col d-flex align-items-center gap-2">
+                            <img src="/images/users.svg" alt="users" class="menubarIcons">
+                            <span>Users</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="row menuRow @(currentController == "EmployeesAndDepartments" ? "checked-element" : "")">
+                    <a asp-action="Index" asp-controller="EmployeesAndDepartments" class="menuRowLinks"
+                        style="text-decoration: none;color:inherit;font-size: medium;">
+                        <div class="col d-flex align-items-center gap-2">
+                            <img src="/images/person-workspace.svg" alt="employees" class="menubarIcons">
+                            <span>Employees</span>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
+        </div>
+        <main id="main" class="pb-3">
+            <div class="container-fluid p-0">
+                <nav class="navbar navbar-expand-lg px-3">
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                        <div class="navProfileIcon">
+                            <img src="/images/menu-bar.svg" alt="menubar" onclick="openNavbar()" id="menuToggleIcon">
+                            <img src="/images/menu-bar.svg" alt="menubar" id="menuOffCanvasToggleIcon"
+                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                                aria-controls="offcanvasWithBothOptions">
+                        </div>
+                        <div class="d-flex align-items-center justify-content-end">
+                            <div class="pe-3">
+                                <img src="/images/bell-fill.svg" alt="notification" style="height: 20px;width:20px" />
+                            </div>
+                            <div class="dropstart">
+                                <img src="/images/person-circle.svg" alt="profileImage" id="navbarDropdown"
+                                    role="button" class="profileImage rounded-circle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <div class="container-fluid d-flex align-items-center gap-2">
+                                            <img src="/images/person-circle.svg" alt="profileImage"
+                                                class="profileImage rounded-circle" style="height: 25px;width:25px">
+                                            <span></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-action="MyProfile" asp-controller="Home">
+                                            <div class="container-fluid d-flex gap-3 justify-content-lg-start"
+                                                style="padding: 0%;">
+                                                <div>
+                                                    <img src="/images/person-circle.svg" alt="person Icon"
+                                                        style="height: 25px;width:25px">
+                                                </div>
+                                                <div>My Profile</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-action="ChangePassword" asp-controller="Home">
+                                            <div class="container-fluid d-flex gap-3 justify-content-lg-start"
+                                                style="padding: 0%;">
+                                                <div>
+                                                    <img src="/images/arrow-clockwise.svg" alt="person Icon"
+                                                        style="height: 25px;width:25px">
+                                                </div>
+                                                <div>Change Password</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" onclick="getLogoutModal()">
+                                            <div class="container-fluid d-flex gap-3 justify-content-lg-start"
+                                                style="padding: 0%;">
+                                                <div>
+                                                    <img src="/images/box-arrow-right.svg" alt="person Icon"
+                                                        style="height: 25px;width:25px">
+                                                </div>
+                                                <div>Logout</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="px-3">
+                @RenderBody()
+            </div>
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - EmployeeManagementSystemFrontend.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - EmployeeManagementSystemFrontend.Web - <a asp-area="" asp-controller="Home"
+                asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        function openNavbar() {
+            document.getElementById("mySideBar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.getElementById("menuToggleIcon").style.display = "none";
+        }
+
+        function closeNavbar() {
+            document.getElementById("mySideBar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.getElementById("menuToggleIcon").style.display = "block";
+        }
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
