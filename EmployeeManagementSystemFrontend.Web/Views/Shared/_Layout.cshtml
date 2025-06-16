@@ -111,7 +111,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <div class="dropdown-item" onclick="getLogoutModal()">
+                                        <a class="dropdown-item" asp-action="Logout" asp-controller="Home">
                                             <div class="container-fluid d-flex gap-3 justify-content-lg-start"
                                                 style="padding: 0%;">
                                                 <div>
@@ -120,7 +120,7 @@
                                                 </div>
                                                 <div>Logout</div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -133,13 +133,6 @@
             </div>
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - EmployeeManagementSystemFrontend.Web - <a asp-area="" asp-controller="Home"
-                asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

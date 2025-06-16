@@ -9,9 +9,10 @@ using EmployeeManagementSystemFrontend.Web.Common;
 
 namespace EmployeeManagementSystemFrontend.Web.Controllers;
 
-public class HomeController(IHttpClientFactory httpClientFactory) : Controller
+public class HomeController(IHttpClientFactory httpClientFactory,TokensHelper tokensHelper) : Controller
 {
     private readonly HttpClient _httpClient = httpClientFactory.CreateClient("EmployeeManagementApi");
+    private readonly TokensHelper _tokensHelper=tokensHelper;
 
     [HttpGet]
     public async Task<IActionResult> Index()
@@ -39,6 +40,12 @@ public class HomeController(IHttpClientFactory httpClientFactory) : Controller
     public IActionResult Privacy()
     {
         return View();
+    }
+
+    public IActionResult Logout()
+    {
+        _tokensHelper.ClearTokens();
+        return RedirectToAction("Login","Authentication");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

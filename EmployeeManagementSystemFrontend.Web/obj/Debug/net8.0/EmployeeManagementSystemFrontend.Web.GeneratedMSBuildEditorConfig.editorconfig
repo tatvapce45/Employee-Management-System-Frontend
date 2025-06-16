@@ -42,6 +42,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0RlcGFydG1lbnRzTGlzdERpdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_EmployeesList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0VtcGxveWVlc0xpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_EmployeesListDiv.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0VtcGxveWVlc0xpc3REaXYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

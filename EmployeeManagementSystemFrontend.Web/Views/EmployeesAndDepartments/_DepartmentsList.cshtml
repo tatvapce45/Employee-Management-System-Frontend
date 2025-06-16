@@ -5,12 +5,12 @@
     {
         @foreach (var department in Model.Departments)
         {
-            <div class="row sectionsRows mt-1 pt-2 pb-2" id="section-@department.Id"
+            <div class="row sectionsRows mt-1 pt-2 pb-2 font-weight-500" id="section-@department.Id"
                 onclick="setActiveSection('@department.Id', '@department.Name','section-@department.Id');setSelectedSection('@department.Id')"
                 style=" cursor: pointer;border-radius: 5px;" tabindex="0">
                 <div class="col-8 menuPageSectionCol">
                     <div class="container-fluid menuPageSectionContainer d-flex align-items-center p-0">
-                        <img src="/images/icons/draggabledots-svgrepo-com.svg" class="iconBeforeMenuCategories"
+                        <img src="/images/draggabledots-svgrepo-com.svg" class="draggable-dots-icon"
                             id="imageFor @department.Name" />
                         <span id="@department.Name">@department.Name</span>
                     </div>
@@ -19,11 +19,11 @@
                     <div
                         class="container-fluid d-flex justify-content-end editDeleteIconContainer gap-3 pe-2 menuPageSectionEditDeleteIconContainer">
                         <a>
-                            <img src="/images/icons/edit-button-svgrepo-com.svg" class="editIcon"
+                            <img src="/images/edit-button-svgrepo-com.svg" class="edit-icon"
                                 id="editImageFor @department.Name"/>
                         </a>
                         <a>
-                            <img src="/images/icons/edit-delete-svgrepo-com.svg" class="deleteIcon"
+                            <img src="/images/edit-delete-svgrepo-com.svg" class="delete-icon"
                                 id="deleteImageFor @department.Name"/>
                         </a>
                     </div>
@@ -36,17 +36,17 @@
         <div class="row">
             <div class="container-fluid d-flex justify-content-center align-items-center pt-5">
                 <div>
-                    <img src="/images/icons/exclamation-circle.svg" class="noDataFoundImg">
+                    <img src="/images/exclamation-circle.svg" class="noDataFoundImg">
                 </div>
                 <div>
-                    <span class="text-danger fontWeight500 ps-2 noListFoundText">No Sections Found!</span>
+                    <span class="text-danger font-weight-500 ps-2 noListFoundText">No Departments Found!</span>
                 </div>
             </div>
         </div>
     }
 </div>
 
-<script>
+@* <script>
     $(document).ready(function () {
         var activeSectionId = localStorage.getItem('activeSection');
         var firstSection = document.querySelector('.sectionsRows');
@@ -110,4 +110,4 @@
             }
         });
     }
-</script>
+</script> *@

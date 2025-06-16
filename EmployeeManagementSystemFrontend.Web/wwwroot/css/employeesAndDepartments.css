@@ -1,6 +1,4 @@
-.departmentsCol {
-  /* background-color: ; */
-}
+
 
 .container-departments {
   padding: 0%;
@@ -8,6 +6,8 @@
 
 #departmentsAndEmployeesDepartmentsContainer {
   height: 530px;
+  background-color: rgb(46, 10, 125,0.07);
+  border-radius: 12px;
 }
 
 .employees-col {
@@ -24,4 +24,10 @@
 .plus-square-icon{
     height: 60px;
     width: 60px;
+}
+
+.employees-container{
+  height: 530px;
+  background-color: rgb(46, 10, 125,0.07);
+  border-radius: 12px;
 }

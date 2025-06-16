@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MvG4QXpeRishO03z37N5L9cKmHcu/kJZCA5/W2UoPsgPNnF7vzOKl5z7xUAHnxXXTOYwUhfqxSGbY2m0lJlvNw==",
+  "dgSpecHash": "RuxIq9hixkR4pGVLur91jpdZIQFad3HCC+CAQzkh2zFkYNfQvMn0f+H/INe+C8QgFLqyhYaZ6tYn9Ov21MH+sQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\EmployeeManagementSystemFrontend.Web.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "C:\\Users\\pce45\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.3.0\\microsoft.aspnetcore.http.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.3.0\\microsoft.aspnetcore.http.features.2.3.0.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.3.0\\microsoft.aspnetcore.webutilities.2.3.0.nupkg.sha512",
+    "C:\\Users\\pce45\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\pce45\\.nuget\\packages\\microsoft.extensions.caching.stackexchangeredis\\8.0.17\\microsoft.extensions.caching.stackexchangeredis.8.0.17.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.6\\microsoft.extensions.configuration.9.0.6.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.6\\microsoft.extensions.configuration.abstractions.9.0.6.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\microsoft.extensions.configuration.binder\\9.0.6\\microsoft.extensions.configuration.binder.9.0.6.nupkg.sha512",
@@ -24,8 +26,11 @@
     "C:\\Users\\pce45\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.6\\microsoft.extensions.primitives.9.0.6.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\microsoft.net.http.headers\\2.3.0\\microsoft.net.http.headers.2.3.0.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\pce45\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "C:\\Users\\pce45\\.nuget\\packages\\stackexchange.redis\\2.7.27\\stackexchange.redis.2.7.27.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\system.buffers\\4.6.0\\system.buffers.4.6.0.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\system.diagnostics.diagnosticsource\\9.0.6\\system.diagnostics.diagnosticsource.9.0.6.nupkg.sha512",
+    "C:\\Users\\pce45\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512"
   ],
   "logs": []

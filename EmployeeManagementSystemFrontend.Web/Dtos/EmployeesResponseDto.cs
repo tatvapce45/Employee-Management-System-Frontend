@@ -6,6 +6,8 @@ namespace EmployeeManagementSystemFrontend.Web.Dtos
     {
         public List<Employee> Employees{get;set;}=[];
 
+        public int DepartmentId{get;set;}
+
         public int PageSize{get;set;}
 
         public int PageNumber{get;set;}
@@ -21,5 +23,7 @@ namespace EmployeeManagementSystemFrontend.Web.Dtos
         public string SortBy{get;set;}=string.Empty;
 
         public string SortOrder{get;set;}=string.Empty;
+
+        public int LastEmployee{get;set;}
     }
 }

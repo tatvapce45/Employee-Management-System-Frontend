@@ -53,6 +53,38 @@
       "PackagePath": "staticwebassets\\images\\dashboard.svg"
     },
     {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\delete-photo-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\delete-photo-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\draggabledots-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\draggabledots-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\edit-button-svgrepo-com-active.svg",
+      "PackagePath": "staticwebassets\\images\\edit-button-svgrepo-com-active.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\edit-button-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\edit-button-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\edit-delete-svgrepo-com-active.svg",
+      "PackagePath": "staticwebassets\\images\\edit-delete-svgrepo-com-active.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\edit-delete-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\edit-delete-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\exclamation-circle.svg",
+      "PackagePath": "staticwebassets\\images\\exclamation-circle.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\leftArrowForPaginationNew.svg",
+      "PackagePath": "staticwebassets\\images\\leftArrowForPaginationNew.svg"
+    },
+    {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\menu-bar.svg",
       "PackagePath": "staticwebassets\\images\\menu-bar.svg"
     },
@@ -67,6 +99,14 @@
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\plus-square-svgrepo-com.svg",
       "PackagePath": "staticwebassets\\images\\plus-square-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\rightArrowForPaginationNew.svg",
+      "PackagePath": "staticwebassets\\images\\rightArrowForPaginationNew.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\search.svg",
+      "PackagePath": "staticwebassets\\images\\search.svg"
     },
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\users.svg",

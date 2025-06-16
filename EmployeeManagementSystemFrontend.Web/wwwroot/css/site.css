@@ -62,3 +62,52 @@ option {
   color: #2e0a7d;
 }
 
+.draggable-dots-icon
+{
+  height: 20px;
+  width: 20px;
+}
+
+.edit-icon{
+  height: 20px;
+  width: 20px;
+}
+
+.delete-icon{
+  height: 20px;
+  width: 20px;
+}
+
+.font-weight-500
+{
+  font-weight: 500;
+}
+
+.delete-icon-1 {
+  height: 30px;
+  width: 30px;
+}
+
+.cursor-pointer-class
+{
+  cursor: pointer;
+}
+
+.yes-btn{
+  background-color: #2e0a7d;
+  color: #fff;
+}
+
+.left-side-arrow{
+  height: 30px;
+  width: 30px;
+}
+
+.right-side-arrow{
+  height: 30px;
+  width: 30px;
+}
+
+.disabled{
+  opacity: 0.7;
+}
