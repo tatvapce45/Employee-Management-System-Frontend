@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\images\\delete-photo-svgrepo-com.svg"
     },
     {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\draggabledots-svgrepo-com-active.svg",
+      "PackagePath": "staticwebassets\\images\\draggabledots-svgrepo-com-active.svg"
+    },
+    {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\draggabledots-svgrepo-com.svg",
       "PackagePath": "staticwebassets\\images\\draggabledots-svgrepo-com.svg"
     },
@@ -79,6 +83,14 @@
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\exclamation-circle.svg",
       "PackagePath": "staticwebassets\\images\\exclamation-circle.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\eye-fill.svg",
+      "PackagePath": "staticwebassets\\images\\eye-fill.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\eye-slash-fill.svg",
+      "PackagePath": "staticwebassets\\images\\eye-slash-fill.svg"
     },
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\leftArrowForPaginationNew.svg",
@@ -115,6 +127,10 @@
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\js\\employeesAndDepartments.js",
       "PackagePath": "staticwebassets\\js\\employeesAndDepartments.js"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\js\\register.js",
+      "PackagePath": "staticwebassets\\js\\register.js"
     },
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\js\\site.js",

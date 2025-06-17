@@ -19,25 +19,31 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
             _httpClient = httpClientFactory.CreateClient("EmployeeManagementApi");
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Register([FromBody] UserRegistrationDto dto)
+        [HttpGet]
+        public IActionResult Register()
         {
-            var content = new StringContent(JsonConvert.SerializeObject(dto), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("api/authentication/Register", content);
-
-            if (response.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Login");
-            }
-
-            var error = await response.Content.ReadAsStringAsync();
-            ViewBag.Error = error;
             return View();
         }
 
-        [HttpGet("Register")]
-        public IActionResult Register()
+        [HttpPost]
+        public async Task<IActionResult> Register(UserRegistrationDto userRegistrationDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            var content = new StringContent(JsonConvert.SerializeObject(userRegistrationDto), Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync("api/authentication/Register", content);
+            var responseContent = await response.Content.ReadAsStringAsync();
+            var apiResponse = JsonConvert.DeserializeObject<ApiResponse<UserRegistrationDto>>(responseContent);
+            if (response.IsSuccessStatusCode && apiResponse != null && apiResponse.Success)
+            {
+
+                return RedirectToAction("Login", "Authentication");
+            }
+
+            ViewBag.Error = apiResponse?.Message ?? "Login failed.";
+            ViewBag.Errors = apiResponse?.ValidationErrors;
             return View();
         }
 
@@ -48,7 +54,6 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
 
             if (!string.IsNullOrEmpty(token))
             {
-                // Add the Authorization header with Bearer token
                 var requestMessage = new HttpRequestMessage(HttpMethod.Get, "api/authentication/Validate-Token");
                 requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
@@ -60,7 +65,6 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
                 }
                 else
                 {
-                    // Log the error message for debugging
                     ViewBag.Error = $"Error: {response.StatusCode}. Please check your authentication.";
                     return View();
                 }
@@ -73,6 +77,10 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(UserLoginDto loginDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             var content = new StringContent(JsonConvert.SerializeObject(loginDto), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync("http://localhost:5287/api/authentication/Login", content);
 
@@ -81,7 +89,7 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
 
             if (response.IsSuccessStatusCode && apiResponse != null && apiResponse.Success)
             {
-                
+
                 HttpContext.Session.SetString("RememberMe", loginDto.RememberMe.ToString());
                 return RedirectToAction("VerifyOtp", "Authentication", new { email = loginDto.Email });
             }
@@ -92,10 +100,11 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult VerifyOtp()
+        public IActionResult VerifyOtp(string email)
         {
-            return View();
+            return View(model: email);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> VerifyOtp(string email, string otp)
@@ -156,6 +165,75 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
             }
 
             return Unauthorized("Failed to refresh token.");
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> GetRoles()
+        {
+            var response = await _httpClient.GetAsync("api/authentication/GetRoles");
+            var responseString = await response.Content.ReadAsStringAsync();
+            var apiResponse = JsonConvert.DeserializeObject<ApiResponse<RolesResponseDto>>(responseString);
+            if (apiResponse is not null && apiResponse.Success && apiResponse.Data is not null)
+            {
+                return Json(apiResponse.Data.RolesDtos);
+            }
+            return Json("No roles found.");
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> GetCountries()
+        {
+            var response = await _httpClient.GetAsync("api/authentication/GetCountries");
+            if (!response.IsSuccessStatusCode)
+            {
+                return Json(new { success = false, message = "Failed to retrieve countries." });
+            }
+            var responseString = await response.Content.ReadAsStringAsync();
+
+            var apiResponse = JsonConvert.DeserializeObject<ApiResponse<CountriesResponseDto>>(responseString);
+            if (apiResponse is not null && apiResponse.Success && apiResponse.Data is not null)
+            {
+                return Json(apiResponse.Data.CountriesDtos);
+            }
+            return Json(new { success = false, message = "No countries found." });
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> GetStatesByCountryId(int countryId)
+        {
+            var response = await _httpClient.GetAsync($"api/authentication/GetStatesbyCountryId?countryId={countryId}");
+            if (!response.IsSuccessStatusCode)
+            {
+                return Json(new { success = false, message = "Failed to retrieve states." });
+            }
+            var responseString = await response.Content.ReadAsStringAsync();
+            var apiResponse = JsonConvert.DeserializeObject<ApiResponse<StatesResponseDto>>(responseString);
+
+            if (apiResponse?.Success == true && apiResponse.Data?.StatesDtos != null)
+            {
+                return Json(apiResponse.Data.StatesDtos);
+            }
+
+            return Json(new { success = false, message = "No states found." });
+        }
+
+
+        [HttpGet]
+        public async Task<JsonResult> GetCitiesByStateId(int stateId)
+        {
+            var response = await _httpClient.GetAsync($"api/authentication/GetCitiesByStateId?stateId={stateId}");
+            if (!response.IsSuccessStatusCode)
+            {
+                return Json(new { success = false, message = "Failed to retrieve cities." });
+            }
+            var responseString = await response.Content.ReadAsStringAsync();
+
+            var apiResponse = JsonConvert.DeserializeObject<ApiResponse<CitiesResponseDto>>(responseString);
+            if (apiResponse is not null && apiResponse.Success && apiResponse.Data is not null)
+            {
+                return Json(apiResponse.Data.CitiesDtos);
+            }
+            return Json(new { success = false, message = "No cities found." });
         }
     }
 }

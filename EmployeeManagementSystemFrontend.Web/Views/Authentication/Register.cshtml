@@ -26,19 +26,21 @@
             <div class="alert alert-danger">@ViewBag.Error</div>
         }
 
-        <form method="post" action="@Url.Action("Register", "Authentication")">
+        <form method="post" asp-action="Register">
             <div class="row pt-4">
                 <div class="col-md-6">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="registerFirstName" asp-for="FirstName"
                             placeholder="">
                         <label for="registerFirstName">First Name*</label>
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="registerLastName" asp-for="LastName" placeholder="">
                         <label for="registerLastName">Last Name*</label>
+                        <span asp-validation-for="LastName" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -48,37 +50,55 @@
                     <div class="form-floating">
                         <input type="text" class="form-control" id="registerUsername" asp-for="UserName" placeholder="">
                         <label for="registerUsername">User Name*</label>
+                        <span asp-validation-for="UserName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
                         <input type="email" class="form-control" id="registerEmail" asp-for="Email" placeholder="">
                         <label for="registerEmail">Email*</label>
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                 </div>
             </div>
 
             <div class="row pt-4">
                 <div class="col-md-6">
-                    <div class="form-floating">
-                        <input type="password" class="form-control" id="registerPassword" asp-for="Password"
-                            placeholder="">
-                        <label for="registerPassword">Password*</label>
+                    <div>
+                        <div>
+                            <div class="form-floating input-group" id="registerPagePasswordDiv">
+                                <input type="password" class="form-control password border-end-0" asp-for="Password"
+                                    id="registerPassword" placeholder="Password"
+                                    onfocus="highlightDiv('registerPagePasswordDiv')"
+                                    onblur="removeHighlightDiv('registerPagePasswordDiv')">
+                                <label for="registerPassword" class="form-label" style="z-index: 4;">Password</label>
+                                <div class="input-group-append " id="eyeImgIconDiv">
+                                    <span class="input-group-text eye-img-icon-span">
+                                        <img src="/images/eye-slash-fill.svg" style="height: 20px;width: 20px;"
+                                            id="passwordEyeIcon"
+                                            onclick="changeEyeIcon('registerPassword','passwordEyeIcon')">
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="text-danger" asp-validation-for="Password"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="registerMobileNo" asp-for="MobileNo" placeholder="">
                         <label for="registerMobileNo">Phone*</label>
+                        <span asp-validation-for="MobileNo" class="text-danger"></span>
                     </div>
                 </div>
             </div>
 
             <div class="pt-4">
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="registerAddress"
+                    <textarea class="form-control" placeholder="Leave a comment here" id="registerAddress" asp-for="Address"
                         style="height: 100px"></textarea>
                     <label for="registerAddress">Address*</label>
+                    <span asp-validation-for="Address" class="text-danger"></span>
                 </div>
             </div>
 
@@ -87,17 +107,15 @@
                     <div class="form-floating">
                         <input type="text" class="form-control" id="registerZipcode" asp-for="Zipcode" placeholder="">
                         <label for="registerZipcode">Zipcode*</label>
+                        <span asp-validation-for="Zipcode" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
                         <select class="form-select" id="registerRoleId" asp-for="RoleId">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
                         </select>
                         <label for="registerRoleId">Role*</label>
+                        <span asp-validation-for="RoleId" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -106,34 +124,25 @@
                 <div class="col-md-4">
                     <div class="form-floating">
                         <select class="form-select" id="registerCountryId" asp-for="CountryId">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
                         </select>
                         <label for="registerCountryId">Country*</label>
+                        <span asp-validation-for="CountryId" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating">
                         <select class="form-select" id="registerStateId" asp-for="StateId">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
                         </select>
                         <label for="registerStateId">State*</label>
+                        <span asp-validation-for="StateId" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating">
                         <select class="form-select" id="registerCityId" asp-for="CityId">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
                         </select>
                         <label for="registerCityId">City*</label>
+                        <span asp-validation-for="CityId" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -148,9 +157,35 @@
             </div>
         </form>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/register.js" asp-append-version="true"></script>
 </body>
+
 </html>
 <script>
     $(document).ready(function () {
-        
+        loadRoles();
+        loadCountries();
+        $("#registerCountryId").change(function () {
+            var countryId = $(this).val();
+            $("#registerStateId").html('<option value="">Select State</option>');
+
+            if (countryId) {
+                loadStates(countryId);
+            }
+        });
+
+        $("#registerStateId").change(function () {
+            var stateId = $(this).val();
+            $("#registerCityId").html('<option value="">Select City</option>');
+
+            if (stateId) {
+                loadCities(stateId);
+            }
+        });
     });
+</script>

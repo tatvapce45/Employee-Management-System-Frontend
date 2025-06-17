@@ -1,6 +1,8 @@
 @{
     Layout = null;
 }
+@model string
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,9 +30,7 @@
                 <form method="post" action="@Url.Action("VerifyOtp", "Authentication")">
                     <div class="mb-3">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="verifyOtpEmail" name="Email"
-                                placeholder="name@example.com">
-                            <label for="verifyOtpEmail">Email</label>
+                            <input type="hidden" class="form-control" id="verifyOtpEmail" name="Email" value="@Model" />
                         </div>
                     </div>
 
@@ -50,5 +50,4 @@
         </div>
     </div>
 </body>
-
 </html>

@@ -3,9 +3,9 @@
 @if (Model?.Employees?.Count != 0 && Model!=null)
 {
     <div class="row mt-4 ">
-        <div class="container-fluid table-responsive tablesListContainer">
+        <div class="container-fluid table-responsive employees-list-container">
             <table class="table">
-                <thead class="tableHeaderSticky">
+                <thead class="table-header-sticky">
                     <tr>
                         <th scope="col">
                             <div class="container-fluid" style="padding: 0%;">
@@ -51,7 +51,7 @@
                                     </div>
                                 </th>
                                 <td style="text-align: center;" class="font-weight-500 pt-3">@employee.Name</td>
-                                <td style="text-align: center;" class="font-weight-500 pt-3">@employee.DepartmentId</td>
+                                <td style="text-align: center;" class="font-weight-500 pt-3">@employee.DepartmentName</td>
                                 <td style="text-align: center;" class="font-weight-500 pt-3">@employee.Email</td>
                                 <td class="pt-3">
                                     <div class="container-fluid d-flex justify-content-end editDeleteIconContainer gap-3 pe-0">
@@ -68,14 +68,14 @@
             </table>
         </div>
     </div>
-    <div class="container-fluid pb-3 pe-0 pt-3 font-weight-500 paginationBottomSticky">
+    <div class="container-fluid pb-3 pe-3 pt-3 font-weight-500 pagination-bottom-sticky">
         <div class="d-flex align-items-center justify-content-end">
             <div>
                 <span>Items per page:&nbsp;</span>
             </div>
             <div>
                 <select class="form-select d-inline" aria-label="Default select example" id="pageSizeSelect"
-                    onchange="loadEmployees('@Model?.DepartmentId',@Model?.CurrentPage,this.value)">
+                    onchange="loadEmployees('@Model?.DepartmentId',1,this.value)">
                     <option value="5" selected="@(Model?.PageSize == 5 ? "selected" : null)">5</option>
                     <option value="10" selected="@(Model?.PageSize == 10 ? "selected" : null)">10</option>
                     <option value="15" selected="@(Model?.PageSize == 15 ? "selected" : null)">15</option>
@@ -88,11 +88,11 @@
                     @Model?.TotalEmployees
                 </span>
             </div>
-            <div class="d-flex">
+            <div class="d-flex pe-1 gap-1">
                 @if (Model?.CurrentPage > 1)
                 {
                     <a
-                        onclick="loadEmployees('@Model.DepartmentId','@Model.CurrentPage-1','@Model.PageSize')">
+                        onclick="loadEmployees('@Model.DepartmentId',@Model.CurrentPage-1,'@Model.PageSize')">
                         <img src="/images/leftArrowForPaginationNew.svg" class="left-side-arrow" />
                     </a>
                 }
@@ -123,7 +123,7 @@ else
                 <img src="/images/icons/exclamation-circle.svg" class="noDataFoundImg">
             </div>
             <div>
-                <span class="text-danger fontWeight500 ps-2 noListFoundText" >No Tables Found!</span>
+                <span class="text-danger fontWeight500 ps-2 noListFoundText" >No Employees Found!</span>
             </div>
         </div>
     </div>

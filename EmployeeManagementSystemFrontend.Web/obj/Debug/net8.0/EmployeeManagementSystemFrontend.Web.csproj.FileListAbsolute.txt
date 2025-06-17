@@ -6,6 +6,9 @@ C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSys
 C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\bin\Debug\net8.0\EmployeeManagementSystemFrontend.Web.runtimeconfig.json
 C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\bin\Debug\net8.0\EmployeeManagementSystemFrontend.Web.dll
 C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\bin\Debug\net8.0\EmployeeManagementSystemFrontend.Web.pdb
+C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
 C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
 C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -30,6 +33,7 @@ C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSys
 C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\obj\Debug\net8.0\EmployeeManagementSystemFrontend.Web.AssemblyInfoInputs.cache
 C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\obj\Debug\net8.0\EmployeeManagementSystemFrontend.Web.AssemblyInfo.cs
 C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\obj\Debug\net8.0\EmployeeManagementSystemFrontend.Web.csproj.CoreCompileInputs.cache
+C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\obj\Debug\net8.0\EmployeeManagementSystemFrontend.Web.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\obj\Debug\net8.0\EmployeeManagementSystemFrontend.Web.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\obj\Debug\net8.0\EmployeeManagementSystemFrontend.Web.RazorAssemblyInfo.cache
 C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\obj\Debug\net8.0\EmployeeManagementSystemFrontend.Web.RazorAssemblyInfo.cs

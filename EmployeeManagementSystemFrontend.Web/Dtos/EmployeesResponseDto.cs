@@ -4,7 +4,7 @@ namespace EmployeeManagementSystemFrontend.Web.Dtos
 {
     public class EmployeesResponseDto
     {
-        public List<Employee> Employees{get;set;}=[];
+        public List<EmployeeDto> Employees{get;set;}=[];
 
         public int DepartmentId{get;set;}
 

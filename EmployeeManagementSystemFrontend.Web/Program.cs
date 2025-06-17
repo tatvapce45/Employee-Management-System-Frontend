@@ -1,11 +1,14 @@
+using EmployeeManagementSystemFrontend.Web;
 using EmployeeManagementSystemFrontend.Web.Common;
+using EmployeeManagementSystemFrontend.Web.DtoValidators;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<JwtAuthorizeFilter>();
 builder.Services.AddScoped<TokensHelper>();
 builder.Services.AddTransient<JwtTokenHandler>();
-
+builder.Services.AddValidationServices();
 builder.Services.AddHttpClient("EmployeeManagementApi", client =>
 {
     client.BaseAddress = new Uri("http://localhost:5287");
@@ -46,7 +49,11 @@ builder.Services.AddSession(options =>
 builder.Services.AddControllersWithViews(options =>
 {
     options.Filters.Add<JwtAuthorizeFilter>();
-});
+})
+.AddFluentValidation(fv =>
+{
+    fv.RegisterValidatorsFromAssemblyContaining<UserRegistrationDtoValidator>();
+});;
 
 
 var app = builder.Build();

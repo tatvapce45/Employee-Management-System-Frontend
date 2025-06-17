@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "RuxIq9hixkR4pGVLur91jpdZIQFad3HCC+CAQzkh2zFkYNfQvMn0f+H/INe+C8QgFLqyhYaZ6tYn9Ov21MH+sQ==",
+  "dgSpecHash": "NFtYijZ1mwvokfftAFIL9+46gsCE0EyZQPB1PB8SiHGmo81CoDOP+10XOesLmX3Qh3Zr13BWa25fQI4IjuL6tA==",
   "success": true,
   "projectFilePath": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\EmployeeManagementSystemFrontend.Web.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\pce45\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
+    "C:\\Users\\pce45\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.1\\fluentvalidation.aspnetcore.11.3.1.nupkg.sha512",
+    "C:\\Users\\pce45\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.11.0\\fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\microsoft.aspnetcore.http\\2.3.0\\microsoft.aspnetcore.http.2.3.0.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.3.0\\microsoft.aspnetcore.http.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\pce45\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.3.0\\microsoft.aspnetcore.http.features.2.3.0.nupkg.sha512",

@@ -51,9 +51,14 @@ body {
     border: none;
 }
 
-*,
+/* *,
 ::after,
 ::before {
   box-sizing: border-box;
   color: #bbb !important;
+} */
+
+#registerPassword
+{
+    box-shadow: none;
 }

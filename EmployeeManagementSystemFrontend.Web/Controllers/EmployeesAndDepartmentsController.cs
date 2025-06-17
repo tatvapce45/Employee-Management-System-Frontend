@@ -60,8 +60,12 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
             }
 
             ViewBag.Error = apiResponse?.Message ?? "Failed to fetch employees.";
-            return View(new List<EmployeeDto>());
+            return PartialView("_EmployeesList",new EmployeesResponseDto());
         }
 
+        public IActionResult GetAddDepartmentModal()
+        {
+            return PartialView("_AddDepartment");
+        }
     }
 }
