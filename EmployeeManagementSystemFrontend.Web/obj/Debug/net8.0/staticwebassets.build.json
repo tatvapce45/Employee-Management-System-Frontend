@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JMpOE2XVj09KuI8YJq6Nc7CKv6WQheFeRyEt7sgnNBI=",
+  "Hash": "yL4CsmBjQaADF6qfg6OUCQLfmh+yBBiPgdf/4+xxIXg=",
   "Source": "EmployeeManagementSystemFrontend.Web",
   "BasePath": "_content/EmployeeManagementSystemFrontend.Web",
   "Mode": "Default",
@@ -623,6 +623,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\users.svg"
+    },
+    {
+      "Identity": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\warning-icon.png",
+      "SourceId": "EmployeeManagementSystemFrontend.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\",
+      "BasePath": "_content/EmployeeManagementSystemFrontend.Web",
+      "RelativePath": "images/warning-icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\warning-icon.png"
     },
     {
       "Identity": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\js\\employeesAndDepartments.js",

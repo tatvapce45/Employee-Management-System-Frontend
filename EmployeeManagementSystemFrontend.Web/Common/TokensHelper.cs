@@ -1,3 +1,5 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using EmployeeManagementSystemFrontend.Web.Common;
 using EmployeeManagementSystemFrontend.Web.Dtos;
@@ -98,4 +100,18 @@ public class TokensHelper(IHttpClientFactory httpClientFactory, IHttpContextAcce
         context.Response.Cookies.Delete("AccessToken");
         context.Response.Cookies.Delete("RefreshToken");
     }
+
+    public IDictionary<string, string>? GetClaimsFromToken(string token)
+    {
+        if (string.IsNullOrEmpty(token))
+            return null;
+
+        var handler = new JwtSecurityTokenHandler();
+        var jwtToken = handler.ReadJwtToken(token);
+
+        var claimsDict = jwtToken.Claims.ToDictionary(c => c.Type, c => c.Value);
+
+        return claimsDict;
+    }
+
 }

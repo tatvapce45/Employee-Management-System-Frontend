@@ -11,7 +11,7 @@
                             <div class="container-fluid" style="padding: 0%;">
 
                                 <div class="form-check ps-3">
-                                    <input class="form-check-input" type="checkbox" id="tablesMainCheckbox">
+                                    <input class="form-check-input" type="checkbox" id="employeesMainCheckbox">
                                     <label class="form-check-label" for="MenumainCheckbox">
                                         Id
                                     </label>
@@ -56,9 +56,9 @@
                                 <td class="pt-3">
                                     <div class="container-fluid d-flex justify-content-end editDeleteIconContainer gap-3 pe-0">
                                         <img src="/images/edit-button-svgrepo-com.svg" class="edit-icon cursor-pointer-class"
-                                            id="editMenuItemIcon">
+                                            id="editMenuItemIcon" onclick="loadUpdateEmployeeModal(@employee.Id)">
 
-                                        <img src="/images/edit-delete-svgrepo-com.svg" class="delete-icon cursor-pointer-class">
+                                        <img src="/images/edit-delete-svgrepo-com.svg" class="delete-icon cursor-pointer-class" onclick="loadConfirmationModal('Are you sure you want to delete employee?','DeleteEmployee',@employee.Id)">
                                     </div>
                                 </td>
                             </tr>
@@ -76,10 +76,10 @@
             <div>
                 <select class="form-select d-inline" aria-label="Default select example" id="pageSizeSelect"
                     onchange="loadEmployees('@Model?.DepartmentId',1,this.value)">
-                    <option value="5" selected="@(Model?.PageSize == 5 ? "selected" : null)">5</option>
-                    <option value="10" selected="@(Model?.PageSize == 10 ? "selected" : null)">10</option>
-                    <option value="15" selected="@(Model?.PageSize == 15 ? "selected" : null)">15</option>
-                    <option value="20" selected="@(Model?.PageSize == 20 ? "selected" : null)">20</option>
+                    <option value="5" selected="@(Model?.PageSize == 5 ? "selected" : null)" style="color:#212529">5</option>
+                    <option value="10" selected="@(Model?.PageSize == 10 ? "selected" : null)" style="color:#212529">10</option>
+                    <option value="15" selected="@(Model?.PageSize == 15 ? "selected" : null)" style="color:#212529">15</option>
+                    <option value="20" selected="@(Model?.PageSize == 20 ? "selected" : null)" style="color:#212529">20</option>
                 </select>
             </div>
             <div>
@@ -120,7 +120,7 @@ else
     <div class="row">
         <div class="container-fluid d-flex justify-content-center align-items-center pt-5">
             <div>
-                <img src="/images/icons/exclamation-circle.svg" class="noDataFoundImg">
+                <img src="/images/exclamation-circle.svg" class="noDataFoundImg">
             </div>
             <div>
                 <span class="text-danger fontWeight500 ps-2 noListFoundText" >No Employees Found!</span>
@@ -128,19 +128,19 @@ else
         </div>
     </div>
 }
-@* <script>
+<script>
     $(document).ready(function () {
-        $("#tablesMainCheckbox").change(function () {
-            $(".tablesAndSectionsTableCheckboxes").prop("checked", this.checked);
+        $("#employeesMainCheckbox").change(function () {
+            $(".employees-checkboxes").prop("checked", this.checked);
         });
 
-        $(".tablesAndSectionsTableCheckboxes").change(function () {
+        $(".employees-checkboxes").change(function () {
             if (!this.checked) {
-                $("#tablesMainCheckbox").prop("checked", false);
-            } else if ($(".tablesAndSectionsTableCheckboxes:checked").length === $(".tablesAndSectionsTableCheckboxes").length) {
-                $("#tablesMainCheckbox").prop("checked", true);
+                $("#employeesMainCheckbox").prop("checked", false);
+            } else if ($(".employees-checkboxes:checked").length === $(".employees-checkboxes").length) {
+                $("#employeesMainCheckbox").prop("checked", true);
             }
         });
     });
 
-</script> *@
+</script>

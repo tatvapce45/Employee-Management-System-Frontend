@@ -125,6 +125,10 @@
       "PackagePath": "staticwebassets\\images\\users.svg"
     },
     {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\warning-icon.png",
+      "PackagePath": "staticwebassets\\images\\warning-icon.png"
+    },
+    {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\js\\employeesAndDepartments.js",
       "PackagePath": "staticwebassets\\js\\employeesAndDepartments.js"
     },

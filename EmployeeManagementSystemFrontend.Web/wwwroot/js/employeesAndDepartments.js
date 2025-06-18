@@ -28,7 +28,6 @@ function loadEmployeesContainer() {
     cache: false,
     success: function (data) {
       $("#departmentsAndEmployeesEmployeesListContainer").html(data);
-      loadDepartments();
     },
   });
 }
@@ -41,6 +40,8 @@ function loadEmployees(
   sortBy,
   sortOrder
 ) {
+  localStorage.setItem("pageNumber", pageNumber);
+  localStorage.setItem("pageSize", pageSize);
   $.ajax({
     url: "/EmployeesAndDepartments/GetEmployees",
     type: "POST",
@@ -61,6 +62,13 @@ function loadEmployees(
     },
   });
 }
+
+$(document).on("input", "#employeeSearchInput", function () {
+  var pageNumber = localStorage.getItem("pageNumber");
+  var pageSize = localStorage.getItem("pageSize");
+  var selectedDepartmentId = localStorage.getItem("activeDepartment");
+  loadEmployees(selectedDepartmentId, pageNumber, pageSize, this.value);
+});
 
 function setActiveDepartment(deptId, deptName, deptRowId) {
   localStorage.setItem("activeDepartment", deptId);
@@ -108,7 +116,7 @@ function updateDepartmentStyle(name, rowId, isActive) {
 
 function loadAddDepartmentModal() {
   $.ajax({
-    url: '/EmployeesAndDepartments/GetAddDepartmentModal',
+    url: "/EmployeesAndDepartments/GetAddDepartmentModal",
     type: "GET",
     cache: false,
     success: function (response) {
@@ -116,4 +124,155 @@ function loadAddDepartmentModal() {
       $("#addDepartmentModal").modal("show");
     },
   });
+}
+
+function loadUpdateDepartmentModal(id) {
+  console.log(id);
+  $.ajax({
+    url: "/EmployeesAndDepartments/GetUpdateDepartmentModal",
+    type: "GET",
+    data: { id: id },
+    cache: false,
+    success: function (response) {
+      $("#modalLoader").html(response);
+      $("#updateDepartmentModal").modal("show");
+    },
+  });
+}
+
+function loadConfirmationModal(message, work, id) {
+  console.log(id);
+  $.ajax({
+    url: "/EmployeesAndDepartments/GetConfirmationModal",
+    type: "GET",
+    data: { confirmationMessage: message, confirmationWork: work, id: id },
+    cache: false,
+    success: function (response) {
+      $("#modalLoader").html(response);
+      $("#confirmationModal").modal("show");
+    },
+  });
+}
+
+function loadAddEmployeeModal() {
+  $.ajax({
+    url: "/EmployeesAndDepartments/GetAddEmployeeModal",
+    type: "GET",
+    cache: false,
+    success: function (response) {
+      $("#modalLoader").html(response);
+      $("#addEmployeeModal").modal("show");
+    },
+  });
+}
+
+function loadCountries() {
+  $.get("/authentication/GetCountries", function (data) {
+    if (data && data.length > 0) {
+      $("#addEmployeeCountryId").html(
+        '<option value="">Select Country</option>'
+      );
+      $.each(data, function (i, country) {
+        $("#addEmployeeCountryId").append(
+          '<option value="' +
+            country.id +
+            '" style="color:#212529">' +
+            country.name +
+            "</option>"
+        );
+      });
+    }
+  }).fail(function () {
+    console.log("Error loading countries.");
+  });
+}
+
+function loadStates(countryId) {
+  $.get(
+    "/authentication/GetStatesByCountryId?countryId=" + countryId,
+    function (data) {
+      if (data && data.length > 0) {
+        $("#addEmployeeStateId").html('<option value="">Select State</option>');
+        $.each(data, function (i, state) {
+          $("#addEmployeeStateId").append(
+            '<option value="' +
+              state.id +
+              '" style="color:#212529">' +
+              state.name +
+              "</option>"
+          );
+        });
+      }
+    }
+  ).fail(function () {
+    console.log("Error loading states.");
+  });
+}
+
+function loadCities(stateId) {
+  $.get(
+    "/authentication/GetCitiesByStateId?stateId=" + stateId,
+    function (data) {
+      if (data && data.length > 0) {
+        $("#addEmployeeCityId").html('<option value="">Select City</option>');
+        $.each(data, function (i, city) {
+          $("#addEmployeeCityId").append(
+            '<option value="' +
+              city.id +
+              '" style="color:#212529">' +
+              city.name +
+              "</option>"
+          );
+        });
+      }
+    }
+  ).fail(function () {
+    console.log("Error loading cities.");
+  });
+}
+
+function loadDepartmentsJson() {
+  $.get("/EmployeesAnddepartments/GetDepartmentsJson", function (data) {
+    console.log(data);
+    if (data && data.length > 0) {
+      $("#addEmployeeDepartmentId").html(
+        '<option value="">Select Department</option>'
+      );
+      $.each(data, function (i, department) {
+        $("#addEmployeeDepartmentId").append(
+          '<option value="' +
+            department.id +
+            '" style="color:#212529">' +
+            department.name +
+            "</option>"
+        );
+      });
+    }
+  }).fail(function () {
+    console.log("Error loading departments.");
+  });
+}
+
+function loadUpdateEmployeeModal(id) {
+  $.ajax({
+    url: "/EmployeesAndDepartments/GetUpdateEmployeeModal",
+    type: "GET",
+    data: { id: id },
+    cache: false,
+    success: function (response) {
+      $("#modalLoader").html(response);
+      $("#updateEmployeeModal").modal("show");
+    },
+  });
+}
+
+function loadDeleteMultipleItemsModal() {
+  var selectedEmployees = [
+    ...document.querySelectorAll(".employees-checkboxes:checked"),
+  ].map((x) => x.value);
+  if (selectedEmployees.length === 0) {
+    toastr.warning("Please select items to delete");
+  } else {
+    loadConfirmationModal('Are you sure you want to delete these employees?','DeleteMultipleEmployees',)
+  }
 }

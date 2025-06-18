@@ -67,13 +67,12 @@ button.accept-policy[b-dpfr1pe2k8] {
   padding-top: 15px;
 }
 
-.sidebar-header[b-dpfr1pe2k8]{
+.sidebar-header[b-dpfr1pe2k8] {
   color: #e84e0c;
 }
 
-.checked-element[b-dpfr1pe2k8]
-{
-  background-color: rgba(178, 155, 226,0.8) !important;
+.checked-element[b-dpfr1pe2k8] {
+  background-color: rgba(178, 155, 226, 0.8) !important;
 }
 
 .menuRow[b-dpfr1pe2k8] {
@@ -104,16 +103,11 @@ button.accept-policy[b-dpfr1pe2k8] {
   width: 18px;
 }
 
-
-
-
-#navbarDropdown[b-dpfr1pe2k8]
-{
+#navbarDropdown[b-dpfr1pe2k8] {
   height: 40px;
   width: 40px;
 }
-#menuToggleIcon[b-dpfr1pe2k8]
-{
+#menuToggleIcon[b-dpfr1pe2k8] {
   display: none;
 }
 
@@ -126,8 +120,8 @@ button.accept-policy[b-dpfr1pe2k8] {
   display: none;
 }
 
-.navbar[b-dpfr1pe2k8]{
-  background-color: rgb(46, 10, 125,0.2);
+.navbar[b-dpfr1pe2k8] {
+  background-color: rgb(46, 10, 125, 0.2);
 }
 
 .dropstart .dropdown-menu[data-bs-popper][b-dpfr1pe2k8] {
@@ -135,7 +129,7 @@ button.accept-policy[b-dpfr1pe2k8] {
   right: 100%;
   left: auto;
   margin-top: 0;
-  margin-right: .125rem;
+  margin-right: 0.125rem;
 }
 
 @media only screen and (max-width: 1205px) {

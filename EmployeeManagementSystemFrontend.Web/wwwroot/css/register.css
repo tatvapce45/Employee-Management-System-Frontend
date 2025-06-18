@@ -62,3 +62,35 @@ body {
 {
     box-shadow: none;
 }
+
+#registerRoleId{
+    color: #bbb;
+    padding-top: 1.625rem;
+    padding-bottom: 0.625rem;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+}
+
+#registerCountryId{
+    color: #bbb;
+    padding-top: 1.625rem;
+    padding-bottom: 0.625rem;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+}
+
+#registerStateId{
+    color: #bbb;
+    padding-top: 1.625rem;
+    padding-bottom: 0.625rem;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+}
+
+#registerCityId{
+    color: #bbb;
+    padding-top: 1.625rem;
+    padding-bottom: 0.625rem;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+}

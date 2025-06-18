@@ -1,0 +1,207 @@
+@model CreateEmployeeDto;
+<partial name="_ValidationScriptsPartial" />
+<form id="addEmployeeForm">
+    <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addEmployeeModalLabel">Add New Employee</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid p-0">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="addEmployeeName" asp-for="Name"
+                                        placeholder="">
+                                    <label for="addEmployeeFirstName">Name*</label>
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="addEmployeeEmail" asp-for="Email"
+                                        placeholder="">
+                                    <label for="addEmployeeEmail">Email*</label>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row pt-4">
+                            <div class="col-md-6">
+                                <div>
+                                    <div>
+                                        <div class="form-floating input-group" id="addEmployeePagePasswordDiv">
+                                            <input type="password" class="form-control password border-end-0" asp-for="Password"
+                                                id="addEmployeePassword" placeholder="Password"
+                                                onfocus="highlightDiv('addEmployeePagePasswordDiv')"
+                                                onblur="removeHighlightDiv('addEmployeePagePasswordDiv')">
+                                            <label for="addEmployeePassword" class="form-label" style="z-index: 4;">Password</label>
+                                            <div class="input-group-append " id="eyeImgIconDiv">
+                                                <span class="input-group-text eye-img-icon-span-reguler">
+                                                    <img src="/images/eye-slash-fill.svg" style="height: 20px;width: 20px;"
+                                                        id="passwordEyeIcon"
+                                                        onclick="changeEyeIcon('addEmployeePassword','passwordEyeIcon')">
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span class="text-danger" asp-validation-for="Password"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="addEmployeeMobileNo" asp-for="MobileNo" placeholder="">
+                                    <label for="addEmployeeMobileNo">Phone*</label>
+                                    <span asp-validation-for="MobileNo" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-4">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="addEmployeeAddress"
+                                    asp-for="Address" style="height: 100px"></textarea>
+                                <label for="addEmployeeAddress">Address*</label>
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row pt-4">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="addEmployeeZipcode" asp-for="Zipcode"
+                                        placeholder="">
+                                    <label for="addEmployeeZipcode">Zipcode*</label>
+                                    <span asp-validation-for="Zipcode" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" id="addEmployeeDepartmentId" asp-for="DepartmentId">
+                                    </select>
+                                    <label for="addEmployeeDepartmentId">Department*</label>
+                                    <span asp-validation-for="DepartmentId" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4 pt-4">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="addEmployeeAge" asp-for="Age"
+                                        placeholder="">
+                                    <label for="addEmployeeAge">Age*</label>
+                                    <span asp-validation-for="Age" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="addEmployeeSalary" asp-for="Salary"
+                                        placeholder="">
+                                    <label for="addEmployeeSalary">Salary*</label>
+                                    <span asp-validation-for="Salary" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="addEmployeeGender" aria-label="Floating label select example" asp-for="Gender">
+                                            <option selected>Select Gender</option>
+                                            <option value="1" style="color:#212529">Male</option>
+                                            <option value="2" style="color:#212529">Female</option>
+                                            <option value="3" style="color:#212529">Other</option>
+                                        </select>
+                                        <label for="addEmployeeGender">Gender*</label>
+                                        <span asp-validation-for="Gender" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <select class="form-select" id="addEmployeeCountryId" asp-for="CountryId">
+                                    </select>
+                                    <label for="addEmployeeCountryId">Country*</label>
+                                    <span asp-validation-for="CountryId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <select class="form-select" id="addEmployeeStateId" asp-for="StateId">
+                                    </select>
+                                    <label for="addEmployeeStateId">State*</label>
+                                    <span asp-validation-for="StateId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <select class="form-select" id="addEmployeeCityId" asp-for="CityId">
+                                    </select>
+                                    <label for="addEmployeeCityId">City*</label>
+                                    <span asp-validation-for="CityId" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer pe-0">
+                        <button type="submit" class="btn yes-btn" id="addEmployeeSaveBtn">Save</button>
+                        <button type="button" class="btn no-btn" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+<script>
+    $(document).ready(function () {
+        loadDepartmentsJson();
+        loadCountries();
+        $("#addEmployeeCountryId").change(function () {
+            var countryId = $(this).val();
+            $("#addEmployeeStateId").html('<option value="">Select State</option>');
+
+            if (countryId) {
+                loadStates(countryId);
+            }
+        });
+
+        $("#addEmployeeStateId").change(function () {
+            var stateId = $(this).val();
+            $("#addEmployeeCityId").html('<option value="">Select City</option>');
+
+            if (stateId) {
+                loadCities(stateId);
+            }
+        });
+
+        $('#addEmployeeForm').on('submit', function (e) {
+            e.preventDefault();
+            if ($(this).valid()) {
+                $.ajax({
+                    url: '@Url.Action("AddEmployee", "EmployeesAndDepartments")',
+                    type: 'POST',
+                    data: $('#addEmployeeForm').serialize(),
+                    success: function (response) {
+                        if (response.messageType=='success') {
+                            $("#addEmployeeModal").modal("hide");
+                            toastr.success(response?.toastMessage);
+                        }
+                        else if(response.messageType=='error')
+                        {
+                            toastr.error(response.toastMessage);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        toastr.error(error);
+                        console.error('AJAX error: ' + status + ' ' + error);
+                    }
+                });
+            }
+        });
+    });
+</script>

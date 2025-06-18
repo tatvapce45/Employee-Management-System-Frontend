@@ -1,32 +1,33 @@
-@model CreateDepartmentDto;
+@model DepartmrentDto;
 @{
     Layout = null;
 }
 <partial name="_ValidationScriptsPartial" />
-<form id="addDepartmentForm">
-    <div class="modal fade" id="addDepartmentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<form id="updateDepartmentForm">
+    <div class="modal fade" id="updateDepartmentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="addDepartmentModalLabel">Add New Department</h1>
+                    <h1 class="modal-title fs-5" id="updateDepartmentModalLabel">Update New Department</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid p-0">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="addDepartmentNameField" asp-for="Name"
+                            <input type="hidden" asp-for="Id" />
+                            <input type="text" class="form-control" id="updateDepartmentNameField" asp-for="Name"
                                 placeholder="Department" />
-                            <label for="addDepartmentNameField">Name*</label>
+                            <label for="updateDepartmentNameField">Name*</label>
                             <span asp-validation-for="Name" class="text-danger pt-1"></span>
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control" id="addDepartmentDescriptionField" placeholder="Description"
+                            <textarea class="form-control" id="updateDepartmentDescriptionField" placeholder="Description"
                                 asp-for="Description"></textarea>
-                            <label for="addDepartmentDescriptionField">Description</label>
+                            <label for="updateDepartmentDescriptionField">Description</label>
                         </div>
                     </div>
                     <div class="modal-footer pe-0">
-                        <button type="submit" class="btn yes-btn" id="addDepartmentSaveBtn">Save</button>
+                        <button type="submit" class="btn yes-btn" id="updateDepartmentSaveBtn">Save</button>
                         <button type="button" class="btn no-btn" data-bs-dismiss="modal">Cancel</button>
                     </div>
                 </div>
@@ -36,17 +37,17 @@
 
 <script>
     $(document).ready(function () {
-        $("#addDepartmentDescriptionField").rules("remove", "required")
-        $('#addDepartmentForm').on('submit', function (e) {
+        $("#updateDepartmentDescriptionField").rules("remove", "required")
+        $('#updateDepartmentForm').on('submit', function (e) {
             e.preventDefault();
             if ($(this).valid()) {
                 $.ajax({
-                    url: '@Url.Action("AddDepartment", "EmployeesAndDepartments")',
+                    url: '@Url.Action("UpdateDepartment", "EmployeesAndDepartments")',
                     type: 'POST',
-                    data: $('#addDepartmentForm').serialize(),
+                    data: $('#updateDepartmentForm').serialize(),
                     success: function (response) {
                         if (response.messageType=='success') {
-                            $("#addDepartmentModal").modal("hide");
+                            $("#updateDepartmentModal").modal("hide");
                             toastr.success(response?.toastMessage);
                         }
                         else if(response.messageType=='error')

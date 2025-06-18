@@ -23,4 +23,7 @@ function changeEyeIcon(passwordId, eyeIconOf) {
   }
 }
 
-
+function showUnauthorizedToaster(permissionName,permissionType)
+{
+  toastr.error("You don't have permission to "+permissionType +" " + permissionName+"!");
+}

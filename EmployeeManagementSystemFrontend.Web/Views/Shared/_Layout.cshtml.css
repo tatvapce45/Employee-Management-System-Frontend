@@ -66,13 +66,12 @@ button.accept-policy {
   padding-top: 15px;
 }
 
-.sidebar-header{
+.sidebar-header {
   color: #e84e0c;
 }
 
-.checked-element
-{
-  background-color: rgba(178, 155, 226,0.8) !important;
+.checked-element {
+  background-color: rgba(178, 155, 226, 0.8) !important;
 }
 
 .menuRow {
@@ -103,16 +102,11 @@ button.accept-policy {
   width: 18px;
 }
 
-
-
-
-#navbarDropdown
-{
+#navbarDropdown {
   height: 40px;
   width: 40px;
 }
-#menuToggleIcon
-{
+#menuToggleIcon {
   display: none;
 }
 
@@ -125,8 +119,8 @@ button.accept-policy {
   display: none;
 }
 
-.navbar{
-  background-color: rgb(46, 10, 125,0.2);
+.navbar {
+  background-color: rgb(46, 10, 125, 0.2);
 }
 
 .dropstart .dropdown-menu[data-bs-popper] {
@@ -134,7 +128,7 @@ button.accept-policy {
   right: 100%;
   left: auto;
   margin-top: 0;
-  margin-right: .125rem;
+  margin-right: 0.125rem;
 }
 
 @media only screen and (max-width: 1205px) {

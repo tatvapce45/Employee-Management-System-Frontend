@@ -45,7 +45,7 @@ public class HomeController(IHttpClientFactory httpClientFactory,TokensHelper to
     public IActionResult Logout()
     {
         _tokensHelper.ClearTokens();
-        return RedirectToAction("Login","Authentication");
+        return Ok();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

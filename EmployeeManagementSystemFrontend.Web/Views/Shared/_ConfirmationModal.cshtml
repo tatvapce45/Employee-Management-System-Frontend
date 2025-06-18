@@ -1,0 +1,150 @@
+@model ConfirmationModalDto
+@{
+    Layout = null;
+    string work = @Model.ConfirmationWork!;
+}
+<form id="confirmationForm">
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div>
+                    <div class="container-fluid d-flex justify-content-end pe-3 pt-3">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid d-flex justify-content-center">
+                        <img src="/images/warning-icon.png" alt="warning icon" style="height: 60px; width: 60px;" />
+                    </div>
+                    <div class="container-fluid d-flex justify-content-center pb-2">
+                        @Model.ConfirmationMessage
+                    </div>
+                    <div>
+                        <div class="container-fluid d-flex justify-content-center gap-2">
+                            <input type="hidden" id="deleteIdField" asp-for="@Model.Id" />
+                            @if (Model.ConfirmationWork == "Logout")
+                            {
+                                <button type="button" class="btn yes-btn" id="logoutBtn">Yes</button>
+                                <button type="button" class="btn no-btn" data-bs-dismiss="modal"
+                                    data-bs-dismiss="modal">No</button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn yes-btn">Yes</button>
+                                <button type="button" class="btn no-btn" data-bs-dismiss="modal"
+                                    data-bs-dismiss="modal">No</button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    $(document).ready(function () {
+        var work = '@work';
+
+        if (work == "Logout") {
+            $('#logoutBtn').on('click', function () {
+                $.ajax({
+                    url: '@Url.Action("Logout", "Home")',
+                    type: 'GET',
+                    success: function (response) {
+                        if (response.messageType == 'success') {
+                            $('#confirmationModal').modal('hide');
+                            toastr.success(response.toastMessage);
+                        }
+                        else if (response.messageType == 'error') {
+                            toastr.error(response.toastMessage);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        toastr.error(error);
+                        console.error('AJAX error: ' + status + ' ' + error);
+                    }
+                });
+                window.location.href = '@Url.Action("Logout", "Home")';
+            });
+        }
+        $('#confirmationForm').on('submit', function (e) {
+            e.preventDefault();
+            if (work == "DeleteDepartment") {
+                var id = '@Model.Id';
+                $.ajax({
+                    url: '@Url.Action("DeleteDepartment", "EmployeesAndDepartments")',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (response) {
+                        if (response.messageType == 'success') {
+                            $('#confirmationModal').modal('hide');
+                            toastr.success(response.toastMessage);
+                        }
+                        else if (response.messageType == 'error') {
+                            toastr.error(response.toastMessage);
+                        }
+                        loadDepartments();
+                    },
+                    error: function (xhr, status, error) {
+                        toastr.error(error);
+                        console.error('AJAX error: ' + status + ' ' + error);
+                    }
+                });
+            }
+            else if (work == "DeleteEmployee") {
+                var id = '@Model.Id';
+                $.ajax({
+                    url: '@Url.Action("DeleteEmployee", "EmployeesAndDepartments")',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (response) {
+                        if (response.messageType == 'success') {
+                            $('#confirmationModal').modal('hide');
+                            toastr.success(response.toastMessage);
+                        }
+                        else if (response.messageType == 'error') {
+                            toastr.error(response.toastMessage);
+                        }
+                        var pageNumber = localStorage.getItem('pageNumber');
+                        var pageSize = localStorage.getItem('pageSize');
+                        var selectedDepartmentId = localStorage.getItem('activeDepartment')
+                        loadEmployees(selectedDepartmentId, pageNumber, pageSize, '');
+                    },
+                    error: function (xhr, status, error) {
+                        toastr.error(error);
+                        console.error('AJAX error: ' + status + ' ' + error);
+                    }
+                });
+            }
+            else if (work == "DeleteMultipleEmployees") {
+                var selectedEmployees = [
+                    ...document.querySelectorAll(".employees-checkboxes:checked"),
+                ].map((x) => x.value);
+                $.ajax({
+                    url: '@Url.Action("DeleteMultipleEmployees", "EmployeesAndDepartments")',
+                    type: 'POST',
+                    data: { selectedEmployees: selectedEmployees },
+                    success: function (response) {
+                        if (response.messageType == 'success') {
+                            $('#confirmationModal').modal('hide');
+                            toastr.success(response.toastMessage);
+                        }
+                        else if (response.messageType == 'error') {
+                            toastr.error(response.toastMessage);
+                        }
+                        var pageNumber = localStorage.getItem('pageNumber');
+                        var pageSize = localStorage.getItem('pageSize');
+                        var selectedDepartmentId = localStorage.getItem('activeDepartment')
+                        loadEmployees(selectedDepartmentId, pageNumber, pageSize, '');
+                    },
+                    error: function (xhr, status, error) {
+                        toastr.error(error);
+                        console.error('AJAX error: ' + status + ' ' + error);
+                    }
+                });
+            }
+        });
+    });
+</script>

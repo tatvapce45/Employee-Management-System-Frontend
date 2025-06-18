@@ -1,0 +1,285 @@
+@model EmployeeDto;
+<partial name="_ValidationScriptsPartial" />
+<form id="updateEmployeeForm">
+    <div class="modal fade" id="updateEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="updateEmployeeModalLabel">Update New Employee</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid p-0">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="hidden" asp-for="Id">
+                                    <input type="text" class="form-control" id="updateEmployeeName" asp-for="Name"
+                                        placeholder="">
+                                    <label for="updateEmployeeFirstName">Name*</label>
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="updateEmployeeEmail" asp-for="Email"
+                                        placeholder="">
+                                    <label for="updateEmployeeEmail">Email*</label>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row pt-4">
+                            
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="updateEmployeeMobileNo"
+                                        asp-for="MobileNo" placeholder="">
+                                    <label for="updateEmployeeMobileNo">Phone*</label>
+                                    <span asp-validation-for="MobileNo" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" id="updateEmployeeDepartmentId" asp-for="DepartmentId">
+                                    </select>
+                                    <label for="updateEmployeeDepartmentId">Department*</label>
+                                    <span asp-validation-for="DepartmentId" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here"
+                                    id="updateEmployeeAddress" asp-for="Address" style="height: 100px"></textarea>
+                                <label for="updateEmployeeAddress">Address*</label>
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row pt-4">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="hidden" asp-for="Password">
+                                    <input type="text" class="form-control" id="updateEmployeeZipcode" asp-for="Zipcode"
+                                        placeholder="">
+                                    <label for="updateEmployeeZipcode">Zipcode*</label>
+                                    <span asp-validation-for="Zipcode" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="updateEmployeeGender"
+                                            aria-label="Floating label select example" asp-for="Gender">
+                                            <option value="Male" style="color:#212529">Male</option>
+                                            <option value="Female" style="color:#212529">Female</option>
+                                            <option value="Other" style="color:#212529">Other</option>
+                                        </select>
+                                        <label for="updateEmployeeGender">Gender*</label>
+                                        <span asp-validation-for="Gender" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4 pt-4">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="updateEmployeeAge" asp-for="Age"
+                                        placeholder="">
+                                    <label for="updateEmployeeAge">Age*</label>
+                                    <span asp-validation-for="Age" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="updateEmployeeSalary" asp-for="Salary"
+                                        placeholder="">
+                                    <label for="updateEmployeeSalary">Salary*</label>
+                                    <span asp-validation-for="Salary" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <select class="form-select" id="updateEmployeeCountryId" asp-for="CountryId">
+                                    </select>
+                                    <label for="updateEmployeeCountryId">Country*</label>
+                                    <span asp-validation-for="CountryId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <select class="form-select" id="updateEmployeeStateId" asp-for="StateId">
+                                    </select>
+                                    <label for="updateEmployeeStateId">State*</label>
+                                    <span asp-validation-for="StateId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <select class="form-select" id="updateEmployeeCityId" asp-for="CityId">
+                                    </select>
+                                    <label for="updateEmployeeCityId">City*</label>
+                                    <span asp-validation-for="CityId" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer pe-0">
+                        <button type="submit" class="btn yes-btn" id="updateEmployeeSaveBtn">Save</button>
+                        <button type="button" class="btn no-btn" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+<script>
+    $(document).ready(function () {
+        var countryId =@Model.CountryId;
+        var stateId =@Model.StateId;
+        var cityId =@Model.CityId;
+        var deaprtmentId =@Model.DepartmentId;
+        loadDepartmentsJson(deaprtmentId);
+        loadCountries(countryId);
+        loadStates(countryId, stateId);
+        loadCities(stateId, cityId);
+        $("#updateEmployeeCountryId").change(function () {
+            var countryId = $(this).val();
+            $("#updateEmployeeStateId").html('<option value="">Select State</option>');
+
+            if (countryId) {
+                loadStates(countryId, stateId);
+            }
+        });
+
+        $("#updateEmployeeStateId").change(function () {
+            var stateId = $(this).val();
+            $("#updateEmployeeCityId").html('<option value="">Select City</option>');
+
+            if (stateId) {
+                loadCities(stateId, cityId);
+            }
+        });
+
+        $('#updateEmployeeForm').on('submit', function (e) {
+            e.preventDefault();
+            if ($(this).valid()) {
+                $.ajax({
+                    url: '@Url.Action("UpdateEmployee", "EmployeesAndDepartments")',
+                    type: 'POST',
+                    data: $('#updateEmployeeForm').serialize(),
+                    success: function (response) {
+                        if (response.messageType == 'success') {
+                            $("#updateEmployeeModal").modal("hide");
+                            toastr.success(response?.toastMessage);
+                            var pageNumber = localStorage.getItem('pageNumber');
+                            var pageSize = localStorage.getItem('pageSize');
+                            var selectedDepartmentId = localStorage.getItem('activeDepartment')
+                            loadEmployees(selectedDepartmentId, pageNumber, pageSize, '');
+                        }
+                        else if (response.messageType == 'error') {
+                            toastr.error(response.toastMessage);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        toastr.error(error);
+                        console.error('AJAX error: ' + status + ' ' + error);
+                    }
+                });
+            }
+        });
+    });
+
+    function loadCountries(selectedCountryId) {
+        $.get("/authentication/GetCountries", function (data) {
+            if (data && data.length > 0) {
+                $("#updateEmployeeCountryId").html(
+                    '<option value="">Select Country</option>'
+                );
+                $.each(data, function (i, country) {
+                    const selected =
+                        selectedCountryId &&
+                            selectedCountryId > 0 &&
+                            country.id === selectedCountryId
+                            ? "selected"
+                            : "";
+                    $("#updateEmployeeCountryId").append(
+                        `<option value="${country.id}" style="color:#212529" ${selected}>${country.name}</option>`
+                    );
+                });
+            }
+        }).fail(function () {
+            console.log("Error loading countries.");
+        });
+    }
+
+    function loadStates(countryId, selectedStateId) {
+        $.get(
+            "/authentication/GetStatesByCountryId?countryId=" + countryId,
+            function (data) {
+                if (data && data.length > 0) {
+                    $("#updateEmployeeStateId").html('<option value="">Select State</option>');
+                    $.each(data, function (i, state) {
+                        const selected =
+                            selectedStateId &&
+                                selectedStateId > 0 &&
+                                state.id === selectedStateId
+                                ? "selected"
+                                : "";
+                        $("#updateEmployeeStateId").append(
+                            `<option value="${state.id}" style="color:#212529" ${selected}>${state.name}</option>`
+                        );
+                    });
+                }
+            }
+        ).fail(function () {
+            console.log("Error loading states.");
+        });
+    }
+
+    function loadCities(stateId, selectedCityId) {
+        $.get(
+            "/authentication/GetCitiesByStateId?stateId=" + stateId,
+            function (data) {
+                if (data && data.length > 0) {
+                    $("#updateEmployeeCityId").html('<option value="">Select City</option>');
+                    $.each(data, function (i, city) {
+                        const selected =
+                            selectedCityId && selectedCityId > 0 && city.id === selectedCityId
+                                ? "selected"
+                                : "";
+                        $("#updateEmployeeCityId").append(
+                            `<option value="${city.id}" style="color:#212529" ${selected}>${city.name}</option>`
+                        );
+                    });
+                }
+            }
+        ).fail(function () {
+            console.log("Error loading cities.");
+        });
+    }
+
+    function loadDepartmentsJson(selectedDepartmentId) {
+        $.get("/EmployeesAnddepartments/GetDepartmentsJson", function (data) {
+            console.log(data);
+            if (data && data.length > 0) {
+                $("#updateEmployeeDepartmentId").html('<option value="">Select Department</option>');
+                $.each(data, function (i, department) {
+                    const selected = (selectedDepartmentId && selectedDepartmentId > 0 && department.id === selectedDepartmentId) ? "selected" : "";
+                    $("#updateEmployeeDepartmentId").append(
+                        `<option value="${department.id}" style="color:#212529" ${selected}>${department.name}</option>`
+                    );
+                });
+            }
+        }).fail(function () {
+            console.log("Error loading departments.");
+        });
+    }
+</script>

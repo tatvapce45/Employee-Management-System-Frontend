@@ -10,6 +10,16 @@
   border-radius: 12px;
 }
 
+.sectionsScrollContainer
+{
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#employeeSearchInput{
+  box-shadow: none;
+}
+
 .employees-col {
   padding-left: 0%;
   padding-right: 0%;
@@ -36,4 +46,20 @@
 {
   max-height: 344px;
   overflow-y: auto;
+}
+
+#addEmployeePassword{
+  box-shadow: none;
+}
+
+.employees-checkboxes:checked{
+  background-color: #2e0a7d;
+  border-color: #2e0a7d;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #2e0a7d;
+}
+
+#employeesMainCheckbox:checked{
+  background-color: #2e0a7d;
+  border-color: #2e0a7d;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #2e0a7d;
 }

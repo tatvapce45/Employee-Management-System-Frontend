@@ -2,9 +2,14 @@ using System.Net.Http.Headers;
 
 namespace EmployeeManagementSystemFrontend.Web.Common
 {
-    public class JwtTokenHandler(TokensHelper tokensHelper) : DelegatingHandler
+    public class JwtTokenHandler : DelegatingHandler
     {
-        private readonly TokensHelper _tokensHelper = tokensHelper;
+        private readonly TokensHelper _tokensHelper;
+
+        public JwtTokenHandler(TokensHelper tokensHelper)
+        {
+            _tokensHelper = tokensHelper;
+        }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {

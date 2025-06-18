@@ -38,6 +38,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0FkZERlcGFydG1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_AddEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0FkZEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_DepartmentsList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0RlcGFydG1lbnRzTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,6 +58,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0VtcGxveWVlc0xpc3REaXYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_UpdateDepartment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX1VwZGF0ZURlcGFydG1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_UpdateEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX1VwZGF0ZUVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -64,6 +76,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/_ConfirmationModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db25maXJtYXRpb25Nb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/_UserClaims.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyQ2xhaW1zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/_ValidationScriptsPartial.cshtml]

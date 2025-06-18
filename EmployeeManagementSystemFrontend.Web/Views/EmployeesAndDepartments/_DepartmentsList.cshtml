@@ -1,49 +1,54 @@
 @model DepartmentsDto
-
-<div class="container-fluid sectionsScrollContainer overflow-auto mb-5">
-    @if (Model.Departments.Count != 0)
-    {
-        @foreach (var department in Model.Departments)
+@using System.Security.Claims
+@{
+    var role = ClaimsHelper.GetClaim(ClaimTypes.Role) ?? "No Role";
+}
+<div>
+    <div class="container-fluid sectionsScrollContainer overflow-auto mb-5">
+        @if (Model.Departments.Count != 0)
         {
-            <div class="row departmentsRows mt-1 pt-2 pb-2 font-weight-500" id="department-@department.Id"
-                onclick="setActiveDepartment('@department.Id', '@department.Name','department-@department.Id');setSelectedSection('@department.Id')"
-                style=" cursor: pointer;border-radius: 5px;" tabindex="0">
-                <div class="col-8 menuPageSectionCol">
-                    <div class="container-fluid menuPageSectionContainer d-flex align-items-center p-0">
-                        <img src="/images/draggabledots-svgrepo-com.svg" class="draggable-dots-icon"
-                            id="imageFor @department.Name" />
-                        <span id="@department.Name">@department.Name</span>
+            @foreach (var department in Model.Departments)
+            {
+                <div class="row departmentsRows mt-1 pt-2 pb-2 font-weight-500" id="department-@department.Id"
+                    onclick="setActiveDepartment('@department.Id', '@department.Name','department-@department.Id')"
+                    style=" cursor: pointer;border-radius: 5px;" tabindex="0">
+                    <div class="col-8 menuPageSectionCol">
+                        <div class="container-fluid menuPageSectionContainer d-flex align-items-center p-0">
+                            <img src="/images/draggabledots-svgrepo-com.svg" class="draggable-dots-icon"
+                                id="imageFor @department.Name" />
+                            <span id="@department.Name">@department.Name</span>
+                        </div>
+                    </div>
+                    <div class="col-4 menuPageSectionEditDeleteIconCol d-flex align-items-center p-0">
+                        <div
+                            class="container-fluid d-flex justify-content-end editDeleteIconContainer gap-3 pe-2 menuPageSectionEditDeleteIconContainer">
+                            <a>
+                                <img src="/images/edit-button-svgrepo-com.svg" class="edit-icon"
+                                    id="editImageFor @department.Name" onclick="@((role=="Admin"||role=="HR Manager" ? "loadUpdateDepartmentModal(@department.Id)" : "showUnauthorizedToaster('department', 'edit')"))" />
+                            </a>
+                            <a>
+                                <img src="/images/edit-delete-svgrepo-com.svg" class="delete-icon"
+                                    id="deleteImageFor @department.Name" onclick="@((role=="Admin" ? "loadConfirmationModal('Are you sure you want to delete department?','DeleteDepartment',@department.Id)" : "showUnauthorizedToaster('department', 'add')"))"/>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-4 menuPageSectionEditDeleteIconCol d-flex align-items-center p-0">
-                    <div
-                        class="container-fluid d-flex justify-content-end editDeleteIconContainer gap-3 pe-2 menuPageSectionEditDeleteIconContainer">
-                        <a>
-                            <img src="/images/edit-button-svgrepo-com.svg" class="edit-icon"
-                                id="editImageFor @department.Name" />
-                        </a>
-                        <a>
-                            <img src="/images/edit-delete-svgrepo-com.svg" class="delete-icon"
-                                id="deleteImageFor @department.Name" />
-                        </a>
+            }
+        }
+        else
+        {
+            <div class="row">
+                <div class="container-fluid d-flex justify-content-center align-items-center pt-5">
+                    <div>
+                        <img src="/images/exclamation-circle.svg" class="noDataFoundImg">
+                    </div>
+                    <div>
+                        <span class="text-danger font-weight-500 ps-2 noListFoundText">No Departments Found!</span>
                     </div>
                 </div>
             </div>
         }
-    }
-    else
-    {
-        <div class="row">
-            <div class="container-fluid d-flex justify-content-center align-items-center pt-5">
-                <div>
-                    <img src="/images/exclamation-circle.svg" class="noDataFoundImg">
-                </div>
-                <div>
-                    <span class="text-danger font-weight-500 ps-2 noListFoundText">No Departments Found!</span>
-                </div>
-            </div>
-        </div>
-    }
+    </div>
 </div>
 
 <script>

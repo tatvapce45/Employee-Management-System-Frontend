@@ -38,20 +38,8 @@ body {
   border-radius: var(--bs-border-radius);
 }
 
-.form-floating > .form-control-plaintext ~ label,
-.form-floating > .form-control:focus ~ label,
-.form-floating > .form-control:not(:placeholder-shown) ~ label,
-.form-floating > .form-select ~ label {
-  color: #bbb;
-  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
-}
 
-.form-floating > .form-select {
-  padding-top: 1.625rem;
-  padding-bottom: 0.625rem;
-  background-color: #2a2a2a;
-  border: 1px solid #444;
-}
+
 
 option {
   color: #bbb;
@@ -143,3 +131,29 @@ option {
   border-top-left-radius: 0%;
   border-bottom-left-radius: 0%;
 }
+
+.eye-img-icon-span-reguler{
+  height: 58px;
+  background-color: #fff;
+  border-color: #bbb;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+}
+
+toastr.options = {
+  "closeButton": true,          
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": true,          
+  "positionClass": "toast-top-right",  
+  "preventDuplicates": true,
+  "onclick": null,
+  "showDuration": "300",         // Animation speed for showing
+  "hideDuration": "1000",        // Animation speed for hiding
+  "timeOut": "5000",             // How long before auto-dismiss
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+};
