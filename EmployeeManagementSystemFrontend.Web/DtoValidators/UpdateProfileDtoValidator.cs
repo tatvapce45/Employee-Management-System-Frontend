@@ -1,12 +1,11 @@
-using System.Data;
-using EmployeeManagementSystemFrontend.Web.Dtos;
 using FluentValidation;
+using EmployeeManagementSystemFrontend.Web.Dtos;
 
 namespace EmployeeManagementSystemFrontend.Web.DtoValidators
 {
-    public class UserRegistrationDtoValidator : AbstractValidator<UserRegistrationDto>
+    public class UpdateProfileDtoValidator : AbstractValidator<UpdateProfileDto>
     {
-        public UserRegistrationDtoValidator()
+        public UpdateProfileDtoValidator()
         {
             RuleFor(x => x.FirstName)
                 .NotEmpty().WithMessage("First Name field must not be null!")
@@ -58,9 +57,6 @@ namespace EmployeeManagementSystemFrontend.Web.DtoValidators
             RuleFor(x => x.RoleId)
                 .NotEmpty().WithMessage("Role field must not be null!")
                 .GreaterThan(0).WithMessage("Role field must be greater than 0!");
-
-            RuleFor(x => x.Gender)
-            .NotEmpty().WithMessage("Gender field must not be null!");
 
             RuleFor(x => x.Age)
                 .NotNull().WithMessage("Employee age can not be null!")

@@ -23,7 +23,54 @@ function changeEyeIcon(passwordId, eyeIconOf) {
   }
 }
 
-function showUnauthorizedToaster(permissionName,permissionType)
-{
-  toastr.error("You don't have permission to "+permissionType +" " + permissionName+"!");
+function showUnauthorizedToaster(permissionName, permissionType) {
+  toastr.error(
+    "You don't have permission to " +
+      permissionType +
+      " " +
+      permissionName +
+      "!"
+  );
+}
+
+$(document).ready(function () {
+  var toastMessage = "@Model.ToastMessage";
+  var messageType = "@Model.MessageType";
+
+  if (toastMessage && messageType !== "") {
+    toastr.options = {
+      closeButton: true,
+      progressBar: true,
+      positionClass: "toast-top-right",
+      timeOut: 5000,
+    };
+
+    switch (messageType) {
+      case "success":
+        toastr.success(toastMessage);
+        break;
+      case "error":
+        toastr.error(toastMessage);
+        break;
+      case "warning":
+        toastr.warning(toastMessage);
+        break;
+      case "info":
+        toastr.info(toastMessage);
+        break;
+    }
+  }
+});
+
+function loadConfirmationModal(message, work, id) {
+  $.ajax({
+    url: "/EmployeesAndDepartments/GetConfirmationModal",
+    type: "GET",
+    data: { confirmationMessage: message, confirmationWork: work, id: id },
+    cache: false,
+    success: function (response) {
+      $("#layoutPageModalLoader").html(response);
+      $("#confirmationModal").modal("show");
+    },
+  });
 }

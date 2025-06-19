@@ -268,7 +268,6 @@
 
     function loadDepartmentsJson(selectedDepartmentId) {
         $.get("/EmployeesAnddepartments/GetDepartmentsJson", function (data) {
-            console.log(data);
             if (data && data.length > 0) {
                 $("#updateEmployeeDepartmentId").html('<option value="">Select Department</option>');
                 $.each(data, function (i, department) {

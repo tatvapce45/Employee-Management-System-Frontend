@@ -138,6 +138,8 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
                     HttpContext.Session.SetString("AccessToken", accessToken);
                     HttpContext.Session.SetString("RefreshToken", refreshToken);
                 }
+                TempData["toastMessage"] = apiResponse.Message;
+                TempData["messageType"] = apiResponse.Success == true ? "success" : "error";
 
                 HttpContext.Session.Remove("RememberMe");
                 return RedirectToAction("Index", "Home");

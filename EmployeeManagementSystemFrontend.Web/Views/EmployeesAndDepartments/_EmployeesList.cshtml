@@ -1,6 +1,10 @@
+@using System.Security.Claims
 @model EmployeesResponseDto;
+@{
+    var role = ClaimsHelper.GetClaim(ClaimTypes.Role) ?? "No Role";
+}
 <partial name="_ValidationScriptsPartial" />
-@if (Model?.Employees?.Count != 0 && Model!=null)
+@if (Model?.Employees?.Count != 0 && Model != null)
 {
     <div class="row mt-4 ">
         <div class="container-fluid table-responsive employees-list-container">
@@ -12,13 +16,49 @@
 
                                 <div class="form-check ps-3">
                                     <input class="form-check-input" type="checkbox" id="employeesMainCheckbox">
-                                    <label class="form-check-label" for="MenumainCheckbox">
-                                        Id
-                                    </label>
+                                    <div class="container-fluid d-flex showUsersNameHeader ps-0">
+                                        <a class="linkDiv"
+                                            onclick="loadEmployees('@Model.DepartmentId', @Model.CurrentPage, @Model.PageSize,'', 'Id', '@(Model.SortBy == "Id" && Model.SortOrder == "asc" ? "desc" : Model.SortOrder == "desc" ? "def" : Model.SortOrder == "def" ? "asc" : "asc")')">
+                                            <span>Id</span>
+                                            @if (Model.SortBy == "Id" && Model.SortOrder == "asc")
+                                            {
+                                                <img src="/images/newSortArrowForAscending.svg"
+                                                    class="tableListSortIcon ms-2" />
+                                            }
+                                            else if (Model.SortBy == "Id" && Model.SortOrder == "desc")
+                                            {
+                                                <img src="/images/newSortArrowForDescending.svg"
+                                                    class="tableListSortIcon ms-2" />
+                                            }
+                                            else
+                                            {
+                                                <img src="/images/newSortArrowForDefault.svg" class="tableListSortIcon ms-2" />
+                                            }
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </th>
-                        <th scope="col" style="text-align: center;">Name</th>
+                        <th scope="col" style="text-align: center;">
+                            <div class="container-fluid d-flex showUsersNameHeader justify-content-center">
+                                <a class="linkDiv"
+                                    onclick="loadEmployees('@Model.DepartmentId', @Model.CurrentPage, @Model.PageSize,'', 'name', '@(Model.SortBy == "name" && Model.SortOrder == "asc" ? "desc" : Model.SortOrder == "desc" ? "def" : Model.SortOrder == "def" ? "asc" : "asc")')">
+                                    <span>Name</span>
+                                    @if (Model.SortBy == "name" && Model.SortOrder == "asc")
+                                    {
+                                        <img src="/images/newSortArrowForAscending.svg" class="tableListSortIcon ms-2" />
+                                    }
+                                    else if (Model.SortBy == "name" && Model.SortOrder == "desc")
+                                    {
+                                        <img src="/images/newSortArrowForDescending.svg" class="tableListSortIcon ms-2" />
+                                    }
+                                    else
+                                    {
+                                        <img src="/images/newSortArrowForDefault.svg" class="tableListSortIcon ms-2" />
+                                    }
+                                </a>
+                            </div>
+                        </th>
                         <th scope="col" style="text-align: center;">Department</th>
                         <th scope="col" style="text-align: center;">Email</th>
                         <th scope="col">
@@ -56,9 +96,11 @@
                                 <td class="pt-3">
                                     <div class="container-fluid d-flex justify-content-end editDeleteIconContainer gap-3 pe-0">
                                         <img src="/images/edit-button-svgrepo-com.svg" class="edit-icon cursor-pointer-class"
-                                            id="editMenuItemIcon" onclick="loadUpdateEmployeeModal(@employee.Id)">
+                                            id="editMenuItemIcon"
+                                            onclick="@(role=="Admin" || role=="HR Manager"?$"loadUpdateEmployeeModal({@employee.Id})":"showUnauthorizedToaster('table','edit')")">
 
-                                        <img src="/images/edit-delete-svgrepo-com.svg" class="delete-icon cursor-pointer-class" onclick="loadConfirmationModal('Are you sure you want to delete employee?','DeleteEmployee',@employee.Id)">
+                                        <img src="/images/edit-delete-svgrepo-com.svg" class="delete-icon cursor-pointer-class"
+                                            onclick="@(role=="Admin"||role=="HR Manager" ? $"loadConfirmationModal('Are you sure you want to delete employee?','DeleteEmployee',{@employee.Id})" : "showUnauthorizedToaster('employee', 'delete')")">
                                     </div>
                                 </td>
                             </tr>
@@ -76,10 +118,14 @@
             <div>
                 <select class="form-select d-inline" aria-label="Default select example" id="pageSizeSelect"
                     onchange="loadEmployees('@Model?.DepartmentId',1,this.value)">
-                    <option value="5" selected="@(Model?.PageSize == 5 ? "selected" : null)" style="color:#212529">5</option>
-                    <option value="10" selected="@(Model?.PageSize == 10 ? "selected" : null)" style="color:#212529">10</option>
-                    <option value="15" selected="@(Model?.PageSize == 15 ? "selected" : null)" style="color:#212529">15</option>
-                    <option value="20" selected="@(Model?.PageSize == 20 ? "selected" : null)" style="color:#212529">20</option>
+                    <option value="5" selected="@(Model?.PageSize == 5 ? "selected" : null)" style="color:#212529">5
+                    </option>
+                    <option value="10" selected="@(Model?.PageSize == 10 ? "selected" : null)" style="color:#212529">10
+                    </option>
+                    <option value="15" selected="@(Model?.PageSize == 15 ? "selected" : null)" style="color:#212529">15
+                    </option>
+                    <option value="20" selected="@(Model?.PageSize == 20 ? "selected" : null)" style="color:#212529">20
+                    </option>
                 </select>
             </div>
             <div>
@@ -91,8 +137,7 @@
             <div class="d-flex pe-1 gap-1">
                 @if (Model?.CurrentPage > 1)
                 {
-                    <a
-                        onclick="loadEmployees('@Model.DepartmentId',@Model.CurrentPage-1,'@Model.PageSize')">
+                    <a onclick="loadEmployees('@Model.DepartmentId',@Model.CurrentPage-1,'@Model.PageSize')">
                         <img src="/images/leftArrowForPaginationNew.svg" class="left-side-arrow" />
                     </a>
                 }
@@ -102,8 +147,7 @@
                 }
                 @if (Model?.CurrentPage * Model?.PageSize < Model?.TotalEmployees)
                 {
-                    <a
-                        onclick="loadEmployees('@Model.DepartmentId',@Model.CurrentPage+1,'@Model.PageSize')">
+                    <a onclick="loadEmployees('@Model.DepartmentId',@Model.CurrentPage+1,'@Model.PageSize')">
                         <img src="/images/rightArrowForPaginationNew.svg" class="right-side-arrow" />
                     </a>
                 }
@@ -123,7 +167,7 @@ else
                 <img src="/images/exclamation-circle.svg" class="noDataFoundImg">
             </div>
             <div>
-                <span class="text-danger fontWeight500 ps-2 noListFoundText" >No Employees Found!</span>
+                <span class="text-danger fontWeight500 ps-2 noListFoundText">No Employees Found!</span>
             </div>
         </div>
     </div>

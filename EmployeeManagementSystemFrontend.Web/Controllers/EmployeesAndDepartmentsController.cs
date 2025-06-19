@@ -1,7 +1,9 @@
 using System.Text;
 using EmployeeManagementSystemFrontend.Web.Common;
 using EmployeeManagementSystemFrontend.Web.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
 
 namespace EmployeeManagementSystemFrontend.Web.Controllers
@@ -142,6 +144,7 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<JsonResult> GetDepartmentsJson()
         {
             var response = await _httpClient.GetAsync("api/employee/GetDepartments");
@@ -240,6 +243,48 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
             }
 
             return Json(new { success = false, messageType = "error", toastMessage = apiResponse?.Message ?? "Unknown error." });
+        }
+
+        public IActionResult GetExportDataModal()
+        {
+            return PartialView("_ExportDataModal");
+        }
+
+        public async Task<IActionResult> ExportEmployeeData(int departmentId, string? fromDate, string? toDate, string? gender, int? age)
+        {
+            var queryParams = new Dictionary<string, string?>
+            {
+                ["departmentId"] = departmentId.ToString(),
+                ["fromDate"] = fromDate,
+                ["toDate"] = toDate,
+                ["gender"] = gender,
+                ["age"] = age?.ToString()
+            };
+
+            var backendApiUrl = QueryHelpers.AddQueryString($"api/employee/GenerateReport", queryParams);
+
+            try
+            {
+                var response = await _httpClient.GetAsync(backendApiUrl);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    return StatusCode((int)response.StatusCode, $"Backend API error: {errorContent}");
+                }
+
+                var contentStream = await response.Content.ReadAsStreamAsync();
+                var contentType = response.Content.Headers.ContentType?.ToString() ?? "application/octet-stream";
+
+                var contentDisposition = response.Content.Headers.ContentDisposition;
+                string fileName = contentDisposition?.FileName?.Trim('"') ?? $"EmployeesReport_{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+
+                return File(contentStream, contentType, fileName);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error calling backend API: {ex.Message}");
+            }
         }
 
     }

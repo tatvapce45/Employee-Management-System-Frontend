@@ -1,0 +1,177 @@
+@{
+    Layout = null;
+}
+<form id="exportDataForm">
+    <div class="modal fade" id="exportDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div>
+                    <div class="container-fluid d-flex justify-content-between pe-3 ps-4 pt-3">
+                        <h4 class="d-inline">Export Data</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control" id="exportDataFromdate"
+                                        placeholder="name@example.com">
+                                    <label for="exportDataFromdate">From</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control" id="exportDataTodate"
+                                        placeholder="name@example.com">
+                                    <label for="exportDataTodate">To</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-floating">
+                                    <select class="form-select" id="exportDataDepartmentId"
+                                        aria-label="Floating label select example">
+                                    </select>
+                                    <label for="exportDataDepartmentId">Department*</label>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="form-floating">
+                                    <select class="form-select" id="exportDataGender"
+                                        aria-label="Floating label select example">
+                                        <option value="" selected>Select Gender</option>
+                                        <option value="Male" style="color:#212529">Male</option>
+                                        <option value="Female" style="color:#212529">Female</option>
+                                        <option value="Other" style="color:#212529">Other</option>
+                                    </select>
+                                    <label for="exportDataGender">Gender</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="exportDataAge"
+                                        placeholder="name@example.com">
+                                    <label for="exportDataAge">Age</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid d-flex justify-content-end gap-2">
+                        <button class="btn yes-btn text-nowrap" type="submit">
+                            <img src="/images/export.svg" class="exportIcon" id="exportIconField">&nbsp;Export
+                        </button>
+                        <button type="button" class="btn no-btn" data-bs-dismiss="modal"
+                            data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {
+        loadDepartmentsJson();
+
+        $("#exportDataForm").on("submit", function (e) {
+            e.preventDefault();
+            if (validateExportDataForm()) {
+                const departmentId = $("#exportDataDepartmentId").val();
+                const fromDate = $("#exportDataFromdate").val();
+                const toDate = $("#exportDataTodate").val();
+                const gender = $("#exportDataGender").val();
+                console.log(gender)
+                const ageVal = $("#exportDataAge").val();
+                const age = ageVal ? parseInt(ageVal) : null;
+
+                var query = new URLSearchParams({
+                    departmentId: departmentId,
+                    fromDate: fromDate,
+                    toDate: toDate,
+                    gender: gender,
+                    age: age
+                }).toString();
+                fetch(`/EmployeesAndDepartments/ExportEmployeeData?${query}`, {
+                    method: "GET",
+                })
+                    .then((response) => {
+                        if (!response.ok) 
+                        {
+                            throw new Error("Failed to download");
+                        }
+                        return response.blob();
+                    })
+                    .then((blob) => {
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement("a");
+                        a.href = url;
+                        const now = new Date();
+                        const timestamp = now
+                            .toISOString()
+                            .slice(0, 19)
+                            .replace(/[-T:]/g, "_");
+                        a.download = `Employees_${timestamp}.xls`;
+                        document.body.appendChild(a);
+                        a.click();
+                        a.remove();
+                        URL.revokeObjectURL(url);
+                    })
+                    .catch((error) => {
+                        toastr.error("Failed to export Excel.");
+                        console.error(error);
+                    });
+            }
+        });
+    });
+
+    function loadDepartmentsJson() {
+        $.get("/EmployeesAnddepartments/GetDepartmentsJson", function (data) {
+            if (data && data.length > 0) {
+                $("#exportDataDepartmentId").html(
+                    '<option value="">Select Department</option>'
+                );
+                $.each(data, function (i, department) {
+                    $("#exportDataDepartmentId").append(
+                        '<option value="' +
+                        department.id +
+                        '" style="color:#212529">' +
+                        department.name +
+                        "</option>"
+                    );
+                });
+            }
+        }).fail(function () {
+            console.log("Error loading departments.");
+        });
+    }
+
+    function validateExportDataForm() {
+        const fromDateVal = $("#exportDataFromdate").val();
+        const toDateVal = $("#exportDataTodate").val();
+        const departmentId = $("#exportDataDepartmentId").val();
+
+        $(".validation-error").remove();
+
+        let isValid = true;
+
+        if (!departmentId) {
+            isValid = false;
+            $("#exportDataDepartmentId").after('<div class="validation-error text-danger small">Please select a department.</div>');
+        }
+
+        if (fromDateVal && toDateVal) {
+            const fromDate = new Date(fromDateVal);
+            const toDate = new Date(toDateVal);
+
+            if (fromDate > toDate) {
+                isValid = false;
+                $("#exportDataFromdate").after('<div class="validation-error text-danger small">From date cannot be greater than To date.</div>');
+            }
+        }
+
+        return isValid;
+    }
+</script>

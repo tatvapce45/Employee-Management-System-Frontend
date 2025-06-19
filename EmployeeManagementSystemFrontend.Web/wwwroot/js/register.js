@@ -51,3 +51,4 @@ function loadCities(stateId) {
         console.log("Error loading cities.");
     });
 }
+

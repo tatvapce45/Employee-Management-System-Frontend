@@ -114,6 +114,18 @@ function updateDepartmentStyle(name, rowId, isActive) {
   }
 }
 
+function loadExportDataModal() {
+  $.ajax({
+    url: "/EmployeesAndDepartments/GetExportDataModal",
+    type: "GET",
+    cache: false,
+    success: function (response) {
+      $("#modalLoader").html(response);
+      $("#exportDataModal").modal("show");
+    },
+  });
+}
+
 function loadAddDepartmentModal() {
   $.ajax({
     url: "/EmployeesAndDepartments/GetAddDepartmentModal",
@@ -127,7 +139,6 @@ function loadAddDepartmentModal() {
 }
 
 function loadUpdateDepartmentModal(id) {
-  console.log(id);
   $.ajax({
     url: "/EmployeesAndDepartments/GetUpdateDepartmentModal",
     type: "GET",
@@ -141,7 +152,6 @@ function loadUpdateDepartmentModal(id) {
 }
 
 function loadConfirmationModal(message, work, id) {
-  console.log(id);
   $.ajax({
     url: "/EmployeesAndDepartments/GetConfirmationModal",
     type: "GET",
@@ -233,7 +243,6 @@ function loadCities(stateId) {
 
 function loadDepartmentsJson() {
   $.get("/EmployeesAnddepartments/GetDepartmentsJson", function (data) {
-    console.log(data);
     if (data && data.length > 0) {
       $("#addEmployeeDepartmentId").html(
         '<option value="">Select Department</option>'
@@ -273,6 +282,9 @@ function loadDeleteMultipleItemsModal() {
   if (selectedEmployees.length === 0) {
     toastr.warning("Please select items to delete");
   } else {
-    loadConfirmationModal('Are you sure you want to delete these employees?','DeleteMultipleEmployees',)
+    loadConfirmationModal(
+      "Are you sure you want to delete these employees?",
+      "DeleteMultipleEmployees"
+    );
   }
 }

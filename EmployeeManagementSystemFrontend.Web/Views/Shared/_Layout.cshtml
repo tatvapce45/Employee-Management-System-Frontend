@@ -6,6 +6,7 @@
     var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
     var userName = ClaimsHelper.GetClaim("userName") ?? "Guest";
     var email = ClaimsHelper.GetClaim("mail") ?? "Not Available";
+    var id = ClaimsHelper.GetClaim(ClaimTypes.NameIdentifier) ?? "No Id";
 }
 
 <!DOCTYPE html>
@@ -17,6 +18,7 @@
     <title>@ViewData["Title"] - EmployeeManagementSystemFrontend.Web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="~/EmployeeManagementSystemFrontend.Web.styles.css" asp-append-version="true" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 </head>
@@ -87,7 +89,8 @@
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" asp-action="MyProfile" asp-controller="Home">
+                                        <a class="dropdown-item" asp-action="MyProfile" asp-controller="Home"
+                                            asp-route-id="@id">
                                             <div class="container-fluid d-flex gap-3 justify-content-lg-start"
                                                 style="padding: 0%;">
                                                 <div>
@@ -99,7 +102,8 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" asp-action="ChangePassword" asp-controller="Home">
+                                        <a class="dropdown-item" asp-action="ChangePassword" asp-controller="Home"
+                                            asp-route-id="@id">
                                             <div class="container-fluid d-flex gap-3 justify-content-lg-start"
                                                 style="padding: 0%;">
                                                 <div>
@@ -131,10 +135,10 @@
             </div>
             <div class="px-3">
                 @RenderBody()
+                <div id="layoutPageModalLoader"></div>
             </div>
         </main>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>

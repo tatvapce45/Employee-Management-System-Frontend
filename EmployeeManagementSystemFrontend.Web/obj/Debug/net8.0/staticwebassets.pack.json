@@ -85,6 +85,10 @@
       "PackagePath": "staticwebassets\\images\\exclamation-circle.svg"
     },
     {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\export.svg",
+      "PackagePath": "staticwebassets\\images\\export.svg"
+    },
+    {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\eye-fill.svg",
       "PackagePath": "staticwebassets\\images\\eye-fill.svg"
     },
@@ -99,6 +103,18 @@
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\menu-bar.svg",
       "PackagePath": "staticwebassets\\images\\menu-bar.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\newSortArrowForAscending.svg",
+      "PackagePath": "staticwebassets\\images\\newSortArrowForAscending.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\newSortArrowForDefault.svg",
+      "PackagePath": "staticwebassets\\images\\newSortArrowForDefault.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\newSortArrowForDescending.svg",
+      "PackagePath": "staticwebassets\\images\\newSortArrowForDescending.svg"
     },
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\person-circle.svg",
@@ -135,6 +151,10 @@
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\js\\register.js",
       "PackagePath": "staticwebassets\\js\\register.js"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\js\\signalr.js",
+      "PackagePath": "staticwebassets\\js\\signalr.js"
     },
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\js\\site.js",

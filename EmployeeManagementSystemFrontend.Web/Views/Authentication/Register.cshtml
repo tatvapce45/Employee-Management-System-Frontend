@@ -32,14 +32,14 @@
                     <div class="form-floating">
                         <input type="text" class="form-control" id="registerFirstName" asp-for="FirstName"
                             placeholder="">
-                        <label for="registerFirstName">First Name*</label>
+                        <label for="registerFirstName" class="registerLabel">First Name*</label>
                         <span asp-validation-for="FirstName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="registerLastName" asp-for="LastName" placeholder="">
-                        <label for="registerLastName">Last Name*</label>
+                        <label for="registerLastName" class="registerLabel">Last Name*</label>
                         <span asp-validation-for="LastName" class="text-danger"></span>
                     </div>
                 </div>
@@ -49,14 +49,14 @@
                 <div class="col-md-6">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="registerUsername" asp-for="UserName" placeholder="">
-                        <label for="registerUsername">User Name*</label>
+                        <label for="registerUsername" class="registerLabel">User Name*</label>
                         <span asp-validation-for="UserName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
                         <input type="email" class="form-control" id="registerEmail" asp-for="Email" placeholder="">
-                        <label for="registerEmail">Email*</label>
+                        <label for="registerEmail" class="registerLabel">Email*</label>
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                 <div class="col-md-6">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="registerMobileNo" asp-for="MobileNo" placeholder="">
-                        <label for="registerMobileNo">Phone*</label>
+                        <label for="registerMobileNo" class="registerLabel">Phone*</label>
                         <span asp-validation-for="MobileNo" class="text-danger"></span>
                     </div>
                 </div>
@@ -97,25 +97,62 @@
                 <div class="form-floating">
                     <textarea class="form-control" placeholder="Leave a comment here" id="registerAddress" asp-for="Address"
                         style="height: 100px"></textarea>
-                    <label for="registerAddress">Address*</label>
+                    <label for="registerAddress" class="registerLabel">Address*</label>
                     <span asp-validation-for="Address" class="text-danger"></span>
                 </div>
             </div>
 
             <div class="row pt-4">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="registerZipcode" asp-for="Zipcode" placeholder="">
-                        <label for="registerZipcode">Zipcode*</label>
+                        <label for="registerZipcode" class="registerLabel">Zipcode*</label>
                         <span asp-validation-for="Zipcode" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-floating">
                         <select class="form-select" id="registerRoleId" asp-for="RoleId">
                         </select>
-                        <label for="registerRoleId">Role*</label>
+                        <label for="registerRoleId" class="registerLabel">Role*</label>
                         <span asp-validation-for="RoleId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <select class="form-select" id="registerDepartmentId" asp-for="DepartmentId">
+                        </select>
+                        <label for="registerDepartmentId" class="registerLabel">Department*</label>
+                        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4 pt-4">
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <select class="form-select" id="registerGender" asp-for="Gender">
+                            <option selected>Select Gender</option>
+                            <option value="Male" >Male</option>
+                            <option value="Female" >Female</option>
+                            <option value="Other" >Other</option>
+                        </select>
+                        <label for="registerGender" class="registerLabel">Gender*</label>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="registerAge" asp-for="Age" placeholder="">
+                        <label for="registerZipcode" class="registerLabel">Age*</label>
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="registerSalary" asp-for="Salary" placeholder="">
+                        <label for="registerZipcode" class="registerLabel">Salary*</label>
+                        <span asp-validation-for="Salary" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -125,7 +162,7 @@
                     <div class="form-floating">
                         <select class="form-select" id="registerCountryId" asp-for="CountryId">
                         </select>
-                        <label for="registerCountryId">Country*</label>
+                        <label for="registerCountryId" class="registerLabel">Country*</label>
                         <span asp-validation-for="CountryId" class="text-danger"></span>
                     </div>
                 </div>
@@ -133,7 +170,7 @@
                     <div class="form-floating">
                         <select class="form-select" id="registerStateId" asp-for="StateId">
                         </select>
-                        <label for="registerStateId">State*</label>
+                        <label for="registerStateId" class="registerLabel">State*</label>
                         <span asp-validation-for="StateId" class="text-danger"></span>
                     </div>
                 </div>
@@ -141,7 +178,7 @@
                     <div class="form-floating">
                         <select class="form-select" id="registerCityId" asp-for="CityId">
                         </select>
-                        <label for="registerCityId">City*</label>
+                        <label for="registerCityId" class="registerLabel">City*</label>
                         <span asp-validation-for="CityId" class="text-danger"></span>
                     </div>
                 </div>
@@ -168,6 +205,7 @@
 </html>
 <script>
     $(document).ready(function () {
+        loadDepartmentsJson();
         loadRoles();
         loadCountries();
         $("#registerCountryId").change(function () {
@@ -188,4 +226,25 @@
             }
         });
     });
+
+    function loadDepartmentsJson() {
+  $.get("/EmployeesAnddepartments/GetDepartmentsJson", function (data) {
+    if (data && data.length > 0) {
+      $("#registerDepartmentId").html(
+        '<option value="">Select Department</option>'
+      );
+      $.each(data, function (i, department) {
+        $("#registerDepartmentId").append(
+          '<option value="' +
+            department.id +
+            '" style="color:#bbb">' +
+            department.name +
+            "</option>"
+        );
+      });
+    }
+  }).fail(function () {
+    console.log("Error loading departments.");
+  });
+}
 </script>

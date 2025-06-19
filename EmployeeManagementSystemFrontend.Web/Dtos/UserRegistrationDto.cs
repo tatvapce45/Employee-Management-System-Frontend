@@ -25,5 +25,13 @@ namespace EmployeeManagementSystemFrontend.Web.Dtos
         public int CityId { get; set; }
 
         public int RoleId { get; set; }
+
+        public string Gender { get; set; } = null!;
+
+        public int Age { get; set; }
+
+        public decimal Salary { get; set; }
+
+        public int DepartmentId{get;set;}
     }
 }

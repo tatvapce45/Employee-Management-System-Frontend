@@ -58,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0VtcGxveWVlc0xpc3REaXYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_ExportDataModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0V4cG9ydERhdGFNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_UpdateDepartment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX1VwZGF0ZURlcGFydG1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,8 +70,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX1VwZGF0ZUVtcGxveWVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/MyProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNeVByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/Privacy.cshtml]

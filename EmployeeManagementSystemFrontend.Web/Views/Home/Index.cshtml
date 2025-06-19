@@ -2,8 +2,9 @@
 
 @{
     ViewData["Title"] = "Employee List";
+    var mesage = TempData["toastMessage"];
+    var type = TempData["messageType"];
 }
-
 <h2>Employee List</h2>
 
 @if (ViewBag.Error != null)
@@ -40,3 +41,21 @@ else
         </tbody>
     </table>
 }
+<script>
+    $(document).ready(function () {
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            positionClass: "toast-top-right",
+            timeOut: 5000,
+        };
+        if ("@mesage" != "") {
+            if ("@type" == "success") {
+                toastr.success("@mesage");
+            }
+            else {
+                toastr.error("@mesage");
+            }
+        }
+    });
+</script>
