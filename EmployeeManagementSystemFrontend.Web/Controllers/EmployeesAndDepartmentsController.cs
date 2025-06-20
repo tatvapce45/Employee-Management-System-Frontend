@@ -195,7 +195,6 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
 
         public async Task<IActionResult> UpdateEmployee(UpdateEmployeeDto updateEmployeeDto)
         {
-            updateEmployeeDto.RoleId = 3;
             var content = new StringContent(JsonConvert.SerializeObject(updateEmployeeDto), Encoding.UTF8, "application/json");
             var response = await _httpClient.PatchAsync("api/employee/UpdateEmployee", content);
             var responseString = await response.Content.ReadAsStringAsync();
@@ -287,5 +286,25 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SendNotification(string email,string message)
+        {
+            NotificationRequest notificationRequest = new()
+            {
+                Email = email,
+                Message = message
+            };
+
+            var content = new StringContent(JsonConvert.SerializeObject(notificationRequest), Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync("api/employee/send-to-user", content);
+            var responseString = await response.Content.ReadAsStringAsync();
+            var apiResponse = JsonConvert.DeserializeObject<ApiResponse<NotificationRequest>>(responseString);
+
+            if (apiResponse is not null && apiResponse.Success)
+            {
+                return Json(new { success = true, messageType = "success", toastMessage = apiResponse.Message });
+            }
+            return Json(new { success = false, messageType = "error", toastMessage = apiResponse?.Message ?? "Unknown error." });
+        }
     }
 }

@@ -1,20 +1,46 @@
-// const connection = new signalR.HubConnectionBuilder()
-//     .withUrl("http://localhost:5287/chathub") 
-//     .build();
+function sendNotification(email, message) {
+  $.ajax({
+    type: "POST",
+    url: "/EmployeesAndDepartments/SendNotification",
+    data: { email: email, message: message },
+    success: function (data) {
+      console.log("Notification triggered.");
+      console.log(data);
+    },
+    error: function () {
+      alert("Failed to send notification.");
+    },
+  });
+}
 
+var userEmail = $('#layoutEmailField').val();
+const connection = new signalR.HubConnectionBuilder()
+  .withUrl(
+    `http://localhost:5287/notificationHub?email=${encodeURIComponent(
+      userEmail
+    )}`
+  )
+  .configureLogging(signalR.LogLevel.Information)
+  .build();
 
-// var Start = async () => {
-//   try {
-//     await connection.start();
-//   } catch (err) {
-//     setTimeout(Start, 50000);
-//   }
-// };
+connection
+  .start()
+  .then(function () {
+    console.log("✅ SignalR connected as:", userEmail);
+  })
+  .catch(function (err) {
+    console.error("❌ SignalR connection error:", err.toString());
+  });
 
-// Start();
+connection.on("ReceiveNotification", function (message) {
+  document.getElementById("notificationDot").classList.remove("d-none");
 
-// connection.onclose(async () => {
-//   await Start();
-// });
-
-
+  startShakingBell();
+  addNotification(message);
+  document
+    .getElementById("notificationBellWrapper")
+    .addEventListener("click", () => {
+      stopShakingBell();
+      document.getElementById("notificationDot").classList.add("d-none");
+    });
+});

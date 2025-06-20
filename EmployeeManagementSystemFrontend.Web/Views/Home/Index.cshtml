@@ -1,61 +1,54 @@
-﻿@model EmployeesResponseDto;
-
-@{
-    ViewData["Title"] = "Employee List";
-    var mesage = TempData["toastMessage"];
-    var type = TempData["messageType"];
-}
-<h2>Employee List</h2>
-
-@if (ViewBag.Error != null)
-{
-    <div style="color:red">@ViewBag.Error</div>
-}
-else if (Model?.Employees.Any() != true)
-{
-    <p>No employees found.</p>
-}
-else
-{
-    <p>Welcome, @ViewBag.UserEmail</p>
-
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Full Name</th>
-                <th>Department</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var employee in Model.Employees)
-            {
-                <tr>
-                    <td>@employee.Id</td>
-                    <td>@employee.Name</td>
-                    <td>@employee.DepartmentId</td>
-                    <td>@employee.Email</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+﻿<link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="container-fluid d-flex justify-content-between align-items-center p-0">
+            <div>
+                <h1 class="content-header">Dashboard</h1>
+            </div>
+            <div>
+                <div class="container-fluid p-0">
+                    <div class="form-floating">
+                        <select class="form-select pt-2" id="dashboardSelectTimeField" style="height: 40px;"
+                            aria-label="Floating label select example">
+                            <option selected value="1" style="color:#212529">All Time</option>
+                            <option value="2" style="color:#212529">Last 7 Days</option>
+                            <option value="3" style="color:#212529">Last 30 Days</option>
+                            <option value="4" style="color:#212529">Current Month</option>
+                            <option value="5" style="color:#212529">Custom Date</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 pb-3">
+        <div class="container-fluid bg-white pb-3 pt-2 ps-3 dashboard-cards-first-row slight-box-shadow-style">
+            <div class="row">
+                <div class="container-fluid">
+                    <div>
+                        <h5>Employee</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-1">
+                <div class="container-fluid d-flex align-items-center justify-content-center">
+                    <div class="chart-inside-icon"></div>
+                    <span class="ps-1">Employee</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid">
+                    <canvas id="revenueChart" class="dashboardGraphs"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/home.js" asp-append-version="true"></script>
 <script>
     $(document).ready(function () {
-        toastr.options = {
-            closeButton: true,
-            progressBar: true,
-            positionClass: "toast-top-right",
-            timeOut: 5000,
-        };
-        if ("@mesage" != "") {
-            if ("@type" == "success") {
-                toastr.success("@mesage");
-            }
-            else {
-                toastr.error("@mesage");
-            }
-        }
+        getDashboardData()
     });
 </script>

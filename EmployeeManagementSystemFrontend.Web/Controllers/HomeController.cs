@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System.Text;
 using System.Net.Http;
 using EmployeeManagementSystemFrontend.Web.Common;
+using Microsoft.AspNetCore.WebUtilities;
 
 namespace EmployeeManagementSystemFrontend.Web.Controllers;
 
@@ -17,24 +18,22 @@ public class HomeController(IHttpClientFactory httpClientFactory, TokensHelper t
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        var requestDto = new EmployeesRequestDto
+        return View();
+    }
+
+    public async Task<JsonResult> GetDashboardData(int timeId=1, string fromDate = "", string toDate = "")
+    {
+        var queryParams = new Dictionary<string, string?>
         {
-            DepartmentId = 1
+            ["timeId"] = timeId.ToString(),
+            ["fromDate"] = fromDate,
+            ["toDate"] = toDate,
         };
-
-        var content = new StringContent(JsonConvert.SerializeObject(requestDto), Encoding.UTF8, "application/json");
-        var response = await _httpClient.PostAsync("api/employee/GetEmployees", content);
+        var backendApiUrl = QueryHelpers.AddQueryString($"api/home/GetDashboardData", queryParams);
+        var response = await _httpClient.GetAsync(backendApiUrl);
         var responseString = await response.Content.ReadAsStringAsync();
-
-        var apiResponse = JsonConvert.DeserializeObject<ApiResponse<EmployeesResponseDto>>(responseString);
-
-        if (apiResponse is not null && apiResponse.Success)
-        {
-            return View(apiResponse.Data);
-        }
-
-        ViewBag.Error = apiResponse?.Message ?? "Failed to fetch employees.";
-        return View(new List<EmployeeDto>());
+        var apiResponse = JsonConvert.DeserializeObject<ApiResponse<DashboardResponseDto>>(responseString);
+        return Json(apiResponse!.Data);
     }
 
     public IActionResult Privacy()
@@ -43,7 +42,7 @@ public class HomeController(IHttpClientFactory httpClientFactory, TokensHelper t
     }
 
     public IActionResult Logout()
-    {   
+    {
         TempData["toastMessage"] = "You have been logged out successfully";
         TempData["messageType"] = "success";
         _tokensHelper.ClearTokens();
@@ -52,11 +51,9 @@ public class HomeController(IHttpClientFactory httpClientFactory, TokensHelper t
 
     public async Task<IActionResult> MyProfile(int id)
     {
-
         var response = await _httpClient.GetAsync($"api/home/GetEmployeeToUpdateProfile?employeeId={id}");
         var responseString = await response.Content.ReadAsStringAsync();
         var apiResponse = JsonConvert.DeserializeObject<ApiResponse<UpdateProfileDto>>(responseString);
-
         if (apiResponse is not null && apiResponse.Success)
         {
             return View(apiResponse.Data);
@@ -71,7 +68,7 @@ public class HomeController(IHttpClientFactory httpClientFactory, TokensHelper t
         var responseString = await response.Content.ReadAsStringAsync();
         var apiResponse = JsonConvert.DeserializeObject<ApiResponse<EmployeeDto>>(responseString);
         TempData["toastMessage"] = apiResponse.Message;
-        TempData["messageType"] = apiResponse.Success==true?"success":"error";
+        TempData["messageType"] = apiResponse.Success == true ? "success" : "error";
         if (apiResponse is not null && apiResponse.Success)
         {
             return RedirectToAction("Index", "Home");
@@ -96,7 +93,7 @@ public class HomeController(IHttpClientFactory httpClientFactory, TokensHelper t
         var responseString = await response.Content.ReadAsStringAsync();
         var apiResponse = JsonConvert.DeserializeObject<ApiResponse<ChangePasswordDto>>(responseString);
         TempData["toastMessage"] = apiResponse.Message;
-        TempData["messageType"] = apiResponse.Success==true?"success":"error";
+        TempData["messageType"] = apiResponse.Success == true ? "success" : "error";
         if (apiResponse is not null && apiResponse.Success)
         {
             return RedirectToAction("Index", "Home");

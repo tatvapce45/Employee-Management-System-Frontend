@@ -1,6 +1,7 @@
 @using System.Security.Claims
 @{
     var role = ClaimsHelper.GetClaim(ClaimTypes.Role) ?? "No Role";
+    var userEmail = ClaimsHelper.GetClaim("mail") ?? "Not Available";
 }
 <div class="row pt-3">
     <h4 class="content-header">Employees</h4>
@@ -25,13 +26,17 @@
         </div>
 
         <div>
-            <img src="/images/delete-photo-svgrepo-com.svg" class="delete-icon-1 cursor-pointer-class" onclick="@((role=="Admin"||role=="HR Manager" ? "loadDeleteMultipleItemsModal()" : "showUnauthorizedToaster('employee', 'delete')"))">
+            <img src="/images/delete-photo-svgrepo-com.svg" class="delete-icon-1 cursor-pointer-class"
+                onclick="@((role=="Admin"||role=="HR Manager" ? "loadDeleteMultipleItemsModal();sendNotification();" : "showUnauthorizedToaster('employee', 'delete')"))">
         </div>
         <div>
-            <button class="btn yes-btn text-nowrap" onclick="@((role=="Admin"||role=="HR Manager" ? "loadAddEmployeeModal()" : "showUnauthorizedToaster('employee', 'add')"))">+New Employee</button>
+            <button class="btn yes-btn text-nowrap"
+                onclick="@((role=="Admin"||role=="HR Manager" ? "loadAddEmployeeModal()" : "showUnauthorizedToaster('employee', 'add')"))">+New
+                Employee</button>
         </div>
         <div>
-            <button class="btn yes-btn text-nowrap" onclick="@((role=="Admin"||role=="HR Manager" ? "loadExportDataModal()" : "showUnauthorizedToaster('employee', 'add')"))">
+            <button class="btn yes-btn text-nowrap"
+                onclick="@((role=="Admin"||role=="HR Manager" ? "loadExportDataModal()" : "showUnauthorizedToaster('employee', 'export')"))">
                 <img src="/images/export.svg" class="exportIcon" id="exportIconField">&nbsp;Export
             </button>
         </div>

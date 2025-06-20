@@ -131,6 +131,29 @@ button.accept-policy {
   margin-right: 0.125rem;
 }
 
+#notificationDot{
+  top: 6px;
+    left: 16px;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-9deg); }
+  50% { transform: rotate(9deg); }
+  75% { transform: rotate(-9deg); }
+  100% { transform: rotate(0deg); }
+}
+.shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+.notification-item.unread {
+  font-weight: bold;
+  background-color: #f8f9fa;
+}
+
+
+
 @media only screen and (max-width: 1205px) {
   .side-bar {
     height: 0% !important;

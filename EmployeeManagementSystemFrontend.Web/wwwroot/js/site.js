@@ -1,8 +1,4 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-function highlightDiv(divId) {
+﻿function highlightDiv(divId) {
   var divId = document.getElementById(divId);
   divId.classList.add("highlighted");
 }
@@ -33,35 +29,6 @@ function showUnauthorizedToaster(permissionName, permissionType) {
   );
 }
 
-$(document).ready(function () {
-  var toastMessage = "@Model.ToastMessage";
-  var messageType = "@Model.MessageType";
-
-  if (toastMessage && messageType !== "") {
-    toastr.options = {
-      closeButton: true,
-      progressBar: true,
-      positionClass: "toast-top-right",
-      timeOut: 5000,
-    };
-
-    switch (messageType) {
-      case "success":
-        toastr.success(toastMessage);
-        break;
-      case "error":
-        toastr.error(toastMessage);
-        break;
-      case "warning":
-        toastr.warning(toastMessage);
-        break;
-      case "info":
-        toastr.info(toastMessage);
-        break;
-    }
-  }
-});
-
 function loadConfirmationModal(message, work, id) {
   $.ajax({
     url: "/EmployeesAndDepartments/GetConfirmationModal",
@@ -74,3 +41,133 @@ function loadConfirmationModal(message, work, id) {
     },
   });
 }
+
+let shakeInterval;
+const bell = document.getElementById("notificationBell");
+const bellWrapper = document.getElementById("notificationBellWrapper");
+const notificationDot = document.getElementById("notificationDot");
+const notificationPanel = document.getElementById("notificationPanel");
+const notificationList = document.getElementById("notificationList");
+const markAllReadButton = document.getElementById("markAllRead");
+const noNotifications = document.getElementById("noNotifications");
+
+function getNotifications() {
+  return JSON.parse(localStorage.getItem("notifications") || "[]");
+}
+
+function saveNotifications(data) {
+  localStorage.setItem("notifications", JSON.stringify(data));
+}
+
+function addNotification(message) {
+  const data = getNotifications();
+  const newNotif = {
+    id: Date.now(),
+    message,
+    read: false,
+  };
+  data.unshift(newNotif);
+  saveNotifications(data);
+  loadNotifications();
+}
+
+function loadNotifications() {
+  const data = getNotifications(); 
+  notificationList.innerHTML = "";
+
+  if (data.length === 0) {
+    noNotifications.classList.remove("d-none");
+    markAllReadButton.disabled = true; 
+    return;
+  }
+
+  noNotifications.classList.add("d-none");
+
+  let hasUnread = false;
+
+  data.forEach((notif) => {
+    const li = document.createElement("li");
+    li.className = `list-group-item notification-item ${
+      notif.read ? "" : "unread"
+    }`;
+    li.textContent = notif.message;
+    li.dataset.id = notif.id;
+    notificationList.appendChild(li);
+
+    if (!notif.read) {
+      hasUnread = true;
+    }
+  });
+
+  if (hasUnread) {
+    notificationDot.classList.remove("d-none");
+    startShakingBell();
+    markAllReadButton.disabled = false; 
+  } else {
+    notificationDot.classList.add("d-none");
+    stopShakingBell();
+    markAllReadButton.disabled = true;
+  }
+}
+
+function startShakingBell() {
+  stopShakingBell();
+  shakeInterval = setInterval(() => {
+    bell.classList.add("shake");
+    setTimeout(() => bell.classList.remove("shake"), 400);
+  }, 1000);
+}
+
+function stopShakingBell() {
+  clearInterval(shakeInterval);
+  bell.classList.remove("shake");
+}
+
+markAllReadButton.addEventListener("click", () => {
+  const data = getNotifications();
+  const updated = data.map((n) => ({ ...n, read: true }));
+  saveNotifications(updated);
+  localStorage.removeItem("notifications");
+  loadNotifications();
+});
+
+bellWrapper.addEventListener("click", () => {
+  notificationPanel.style.display =
+    notificationPanel.style.display === "none" ||
+    notificationPanel.style.display === ""
+      ? "block"
+      : "none";
+});
+
+window.addEventListener("load", () => {
+  loadNotifications();
+});
+
+function openNavbar() {
+  document.getElementById("mySideBar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("menuToggleIcon").style.display = "none";
+}
+
+function closeNavbar() {
+  document.getElementById("mySideBar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.getElementById("menuToggleIcon").style.display = "block";
+}
+toastr.options = {
+  closeButton: true,
+  debug: false,
+  newestOnTop: true,
+  progressBar: true,
+  positionClass: "toast-top-right",
+  preventDuplicates: true,
+  onclick: null,
+  showDuration: "300",
+  hideDuration: "1000",
+  timeOut: "5000",
+  extendedTimeOut: "1000",
+  showEasing: "swing",
+  hideEasing: "linear",
+  showMethod: "fadeIn",
+  hideMethod: "fadeOut",
+};

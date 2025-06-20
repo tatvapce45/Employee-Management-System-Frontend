@@ -132,6 +132,29 @@ button.accept-policy[b-dpfr1pe2k8] {
   margin-right: 0.125rem;
 }
 
+#notificationDot[b-dpfr1pe2k8]{
+  top: 6px;
+    left: 16px;
+}
+
+@keyframes shake-b-dpfr1pe2k8 {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-9deg); }
+  50% { transform: rotate(9deg); }
+  75% { transform: rotate(-9deg); }
+  100% { transform: rotate(0deg); }
+}
+.shake[b-dpfr1pe2k8] {
+  animation: shake-b-dpfr1pe2k8 0.4s ease-in-out;
+}
+
+.notification-item.unread[b-dpfr1pe2k8] {
+  font-weight: bold;
+  background-color: #f8f9fa;
+}
+
+
+
 @media only screen and (max-width: 1205px) {
   .side-bar[b-dpfr1pe2k8] {
     height: 0% !important;

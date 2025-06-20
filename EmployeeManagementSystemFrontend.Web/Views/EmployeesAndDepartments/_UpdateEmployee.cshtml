@@ -1,4 +1,7 @@
 @model EmployeeDto;
+@{
+    var userName = ClaimsHelper.GetClaim("userName") ?? "Guest";
+}
 <partial name="_ValidationScriptsPartial" />
 <form id="updateEmployeeForm">
     <div class="modal fade" id="updateEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -14,6 +17,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-floating">
+                                    <input type="hidden" asp-for="RoleId">
                                     <input type="hidden" asp-for="Id">
                                     <input type="text" class="form-control" id="updateEmployeeName" asp-for="Name"
                                         placeholder="">
@@ -23,7 +27,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="updateEmployeeEmail" asp-for="Email"
+                                    <input type="email" class="form-control" id="updateEmployeeEmail" asp-for="Email" readonly
                                         placeholder="">
                                     <label for="updateEmployeeEmail">Email*</label>
                                     <span asp-validation-for="Email" class="text-danger"></span>
@@ -146,6 +150,7 @@
         var stateId =@Model.StateId;
         var cityId =@Model.CityId;
         var deaprtmentId =@Model.DepartmentId;
+        var email='@Model.Email';
         loadDepartmentsJson(deaprtmentId);
         loadCountries(countryId);
         loadStates(countryId, stateId);
@@ -183,6 +188,7 @@
                             var pageSize = localStorage.getItem('pageSize');
                             var selectedDepartmentId = localStorage.getItem('activeDepartment')
                             loadEmployees(selectedDepartmentId, pageNumber, pageSize, '');
+                            sendNotification(email,'Your information has been updated by @userName')
                         }
                         else if (response.messageType == 'error') {
                             toastr.error(response.toastMessage);

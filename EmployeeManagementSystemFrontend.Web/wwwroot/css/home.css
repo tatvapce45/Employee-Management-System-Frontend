@@ -1,0 +1,15 @@
+.dashboard-cards-first-row {
+    border-radius: 8px;
+  }
+
+  .slight-box-shadow-style {
+    box-shadow: 0 0 7px rgb(46, 10, 125,0.3);
+    border-radius: 8px;
+  }
+
+  .chart-inside-icon {
+    height: 15px;
+    width: 60px;
+    background-color: rgb(46, 10, 125,0.2);
+    border: 2px solid #2e0a7d;
+  }
