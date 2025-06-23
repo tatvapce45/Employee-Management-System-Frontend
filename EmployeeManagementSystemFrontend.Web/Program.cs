@@ -86,3 +86,6 @@ app.MapControllerRoute(
     pattern: "{controller=Authentication}/{action=Login}");
 
 app.Run();
+
+
+// https://www.scholarhat.com/tutorial/aspnet/what-is-oauth-secure-aspnet-core-app-oauth-2
