@@ -13,3 +13,20 @@
     background-color: rgb(46, 10, 125,0.2);
     border: 2px solid #2e0a7d;
   }
+
+  #timeWiseEmployeeChart{
+    max-height: 260px;
+    max-width: 1017px;
+  }
+
+  #genderWiseEmployeeChart{
+    height: 260px;
+  }
+
+  #ageWiseEmployeeChart{
+    height: 260px;
+  }
+
+  #myProfileCancelBtn{
+    text-decoration: none;
+  }

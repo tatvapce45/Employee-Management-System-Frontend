@@ -59,9 +59,42 @@
                 </div>
             </div>
         </div>
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+            aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header">
+                <div class="d-flex align-items-center justify-content-center">
+                    <h1 class="d-inline text-white">Side</h1>
+                    <h1 class="pe-2 sidebar-header">bar</h1>
+                </div>
+                <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="row menuRow @(currentController == "Home" ? "checked-element" : "")"
+                    style="margin-top: 20px;">
+                    <a asp-action="Index" asp-controller="Home" class="menuRowLinks"
+                        style="text-decoration: none;color:inherit;font-size: medium;letter-spacing: 0.08em;">
+                        <div class="col d-flex align-items-center gap-2">
+                            <img src="/images/dashboard.svg" alt="dashboard" class="menubarIcons">
+                            <span>Dashboard</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="row menuRow @(currentController == "EmployeesAndDepartments" ? "checked-element" : "")">
+                    <a asp-action="Index" asp-controller="EmployeesAndDepartments" class="menuRowLinks"
+                        style="text-decoration: none;color:inherit;font-size: medium;letter-spacing: 0.08em;">
+                        <div class="col d-flex align-items-center gap-2">
+                            <img src="/images/person-workspace.svg" alt="employees" class="menubarIcons">
+                            <span>Employees</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
         <main id="main" class="pb-3">
             <div class="container-fluid p-0">
-                <nav class="navbar navbar-expand-lg px-3">
+                <nav class="navbar navbar-expand-lg px-3" id="navbarMainLayout">
                     <div class="d-flex align-items-center justify-content-between w-100">
                         <div class="navProfileIcon">
                             <img src="/images/menu-bar.svg" alt="menubar" onclick="openNavbar()" id="menuToggleIcon">
@@ -160,8 +193,10 @@
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@@fluentvalidation/jquery-validation-unobtrusive@1.5.4/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@@fluentvalidation/jquery-validation-unobtrusive@1.5.4/dist/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@@microsoft/signalr@7.0.5/dist/browser/signalr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -169,6 +204,24 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/signalr.js" asp-append-version="true"></script>
     <script src="scripts/toastr.min.js" type="text/javascrip"></script>
+    <script>
+        $(document).ready(function () {
+            function checkWindowSize() {
+                if ($(window).width() > 1205) {
+                    var offcanvasElement = document.getElementById('offcanvasWithBothOptions');
+                    var offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+                    if (offcanvas && offcanvas._isShown) {
+                        offcanvas.hide();
+                    }
+                }
+            }
+
+            checkWindowSize();
+            $(window).on('resize', function () {
+                checkWindowSize();
+            });
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

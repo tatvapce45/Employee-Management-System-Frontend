@@ -53,14 +53,14 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddControllersWithViews(options =>
 {
-    options.Filters.Add<JwtAuthorizeFilter>(); 
+    options.Filters.Add<JwtAuthorizeFilter>();
 })
 .AddFluentValidation(fv =>
 {
     fv.RegisterValidatorsFromAssemblyContaining<UserRegistrationDtoValidator>();
     fv.RegisterValidatorsFromAssemblyContaining<UpdateProfileDtoValidator>();
     fv.RegisterValidatorsFromAssemblyContaining<ChangePasswordDtoValidator>();
-    
+
 });
 
 var app = builder.Build();
@@ -77,7 +77,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.MapHub<ChatHub>("/chathub");
+app.MapHub<ChatHub>("/chathub");    
 
 app.UseAuthorization();
 

@@ -152,6 +152,16 @@ button.accept-policy[b-dpfr1pe2k8] {
   background-color: #f8f9fa;
 }
 
+#navbarMainLayout[b-dpfr1pe2k8]{
+  position: sticky;
+    top: 0px;
+    z-index: 4;
+}
+
+#offcanvasWithBothOptions[b-dpfr1pe2k8]{
+  width: 250px;
+  background-color: #2e0a7d;
+}
 
 
 @media only screen and (max-width: 1205px) {

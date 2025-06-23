@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text;
-
-
 namespace EmployeeManagementSystemFrontend.Web.Controllers
 {
     [AllowAnonymous]
@@ -47,7 +45,6 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
             return View();
         }
 
-
         public async Task<IActionResult> Login()
         {
             string? token = HttpContext.Session.GetString("AccessToken") ?? Request.Cookies["AccessToken"];
@@ -72,7 +69,6 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
 
             return View();
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Login(UserLoginDto loginDto)
@@ -104,7 +100,6 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
         {
             return View(model: email);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> VerifyOtp(string email, string otp)
@@ -218,7 +213,6 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
 
             return Json(new { success = false, message = "No states found." });
         }
-
 
         [HttpGet]
         public async Task<JsonResult> GetCitiesByStateId(int stateId)

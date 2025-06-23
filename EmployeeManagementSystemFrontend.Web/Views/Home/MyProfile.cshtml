@@ -163,7 +163,9 @@
 
             <div class="mb-3 text-center pt-3">
                 <button type="submit" class="btn yes-btn me-2">Update Profile</button>
-                <button type="submit" class="btn no-btn">Cancel</button>
+                <a href="@Url.Action("Index")">
+                            <button type="button" class="btn no-btn" id="myProfileCancelBtn">Cancel</button>
+                        </a>
             </div>
         </form>
     </div>
@@ -290,7 +292,6 @@
 
     function loadRoles(selectedRoleId) {
         $.get("/authentication/GetRoles", function (data) {
-            console.log(data)
             if (data && data.length > 0) {
                 $("#myProfileRoleId").html(
                     '<option value="">Select Role</option>'

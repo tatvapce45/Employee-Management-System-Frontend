@@ -1,0 +1,74 @@
+@{
+    Layout = null;
+}
+<partial name="_ValidationScriptsPartial" />
+<form id="selectDateRangeForDashboardDataForm">
+    <div class="modal fade" id="selectDateRangeForDashboardDataModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="selectDateRangeForDashboardDataModalLabel">Select Date Range</h1>
+                    <button type="button" class="btn-close selectDateRangeForDashboardDataCancelField"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid p-0 d-flex flex-column flex-sm-row" id="fromDateToDateContainer">
+                        <div class="container-fluid px-1">
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control"
+                                    id="selectDateRangeForDashboardDataModalFromDateField">
+                                <label for="selectDateRangeForDashboardDataModalFromDateField">Start Date</label>
+                            </div>
+                        </div>
+                        <div class="container-fluid px-1 ">
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control"
+                                    id="selectDateRangeForDashboardDataModalToDateField">
+                                <label for="selectDateRangeForDashboardDataModalToDateField">End Date</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer pe-0 pb-0 pt-2">
+                        <div class="container-fluid d-flex justify-content-center gap-2">
+                            <button type="submit" class="btn yes-btn"
+                                id="selectDateRangeForDashboardDataSaveBtn">Submit</button>
+                            <button type="button" class="btn no-btn" id="selectDateRangeForDashboardDataCancelField"
+                                data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+<script>
+    $(document).ready(function () {
+        $('#selectDateRangeForDashboardDataForm').on('submit', function (e) {
+            e.preventDefault();
+            $('.text-danger').remove();
+
+            const fromDate = $('#selectDateRangeForDashboardDataModalFromDateField').val();
+            const toDate = $('#selectDateRangeForDashboardDataModalToDateField').val();
+
+            if (!fromDate || !toDate) {
+                $('#fromDateToDateContainer').after('<span class="text-danger">Both dates are required.</span>');
+                return;
+            }
+
+            if (fromDate > toDate) {
+                $('#fromDateToDateContainer').after('<span class="text-danger">From Date must be less than or equal to To Date.</span>');
+                return;
+            }
+
+            if ($(this).valid()) {
+                getDashboardData(5, fromDate, toDate);
+                $('#selectDateRangeForDashboardDataModal').modal('hide');
+            }
+        });
+
+        $('#selectDateRangeForDashboardDataCancelField').on('click', function () {
+            $('#dashboardSelectTimeField').val('1');
+        });
+    });
+
+</script>

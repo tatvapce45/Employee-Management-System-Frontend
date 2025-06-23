@@ -4,8 +4,6 @@ function sendNotification(email, message) {
     url: "/EmployeesAndDepartments/SendNotification",
     data: { email: email, message: message },
     success: function (data) {
-      console.log("Notification triggered.");
-      console.log(data);
     },
     error: function () {
       alert("Failed to send notification.");
@@ -26,7 +24,6 @@ const connection = new signalR.HubConnectionBuilder()
 connection
   .start()
   .then(function () {
-    console.log("✅ SignalR connected as:", userEmail);
   })
   .catch(function (err) {
     console.error("❌ SignalR connection error:", err.toString());

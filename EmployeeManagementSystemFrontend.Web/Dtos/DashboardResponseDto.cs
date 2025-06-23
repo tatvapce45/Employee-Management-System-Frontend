@@ -9,5 +9,7 @@ namespace EmployeeManagementSystemFrontend.Web.Dtos
         public Dictionary<int,int> AgeWiseEmployees{get;set;}=[];
 
         public Dictionary<string,int> TimeWiseEmployees{get;set;}=[];
+
+        public Dictionary<string,int> CountryWiseEmployees{get;set;}=[];
     }
 }

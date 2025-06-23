@@ -91,7 +91,6 @@ public class TokensHelper(IHttpClientFactory httpClientFactory, IHttpContextAcce
         return null;
     }
 
-
     public void ClearTokens()
     {
         var context = _httpContextAccessor.HttpContext!;

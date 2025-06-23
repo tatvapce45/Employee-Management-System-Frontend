@@ -9,107 +9,111 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EmployeeManagementSystemFrontend.Web
 build_property.RootNamespace = EmployeeManagementSystemFrontend.Web
-build_property.ProjectDir = c:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\
+build_property.ProjectDir = C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web
+build_property.MSBuildProjectDirectory = C:\Users\pce45\Desktop\Employee Management System Frontend\EmployeeManagementSystemFrontend.Web
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Authentication/Login.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Authentication/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Authentication/Register.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Authentication/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Authentication/VerifyOtp.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Authentication/VerifyOtp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cVmVyaWZ5T3RwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/Index.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_AddDepartment.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_AddDepartment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0FkZERlcGFydG1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_AddEmployee.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_AddEmployee.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0FkZEVtcGxveWVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_DepartmentsList.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_DepartmentsList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0RlcGFydG1lbnRzTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_DepartmentsListDiv.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_DepartmentsListDiv.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0RlcGFydG1lbnRzTGlzdERpdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_EmployeesList.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_EmployeesList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0VtcGxveWVlc0xpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_EmployeesListDiv.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_EmployeesListDiv.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0VtcGxveWVlc0xpc3REaXYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_ExportDataModal.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_ExportDataModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX0V4cG9ydERhdGFNb2RhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_UpdateDepartment.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_UpdateDepartment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX1VwZGF0ZURlcGFydG1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_UpdateEmployee.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/EmployeesAndDepartments/_UpdateEmployee.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzQW5kRGVwYXJ0bWVudHNcX1VwZGF0ZUVtcGxveWVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/ChangePassword.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/Index.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/MyProfile.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/MyProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNeVByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/Privacy.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/Error.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Home/_DashboardDateSelector.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfRGFzaGJvYXJkRGF0ZVNlbGVjdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/_ConfirmationModal.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/_ConfirmationModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db25maXJtYXRpb25Nb2RhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/_UserClaims.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/_UserClaims.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyQ2xhaW1zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/_ViewImports.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/_ViewStart.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/_Layout.cshtml]
+[C:/Users/pce45/Desktop/Employee Management System Frontend/EmployeeManagementSystemFrontend.Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-dpfr1pe2k8

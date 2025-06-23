@@ -1,4 +1,9 @@
-﻿<link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    var mesage = TempData["toastMessage"];
+    var type = TempData["messageType"];
+}
+<link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
 <div class="row mt-3">
     <div class="col-12">
         <div class="container-fluid d-flex justify-content-between align-items-center p-0">
@@ -28,7 +33,7 @@
             <div class="row">
                 <div class="container-fluid">
                     <div>
-                        <h5>Employee</h5>
+                        <h5>Timewise Employee</h5>
                     </div>
                 </div>
             </div>
@@ -40,15 +45,96 @@
             </div>
             <div class="row">
                 <div class="container-fluid">
-                    <canvas id="revenueChart" class="dashboardGraphs"></canvas>
+                    <canvas id="timeWiseEmployeeChart" class="dashboardGraphs"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 pb-3">
+        <div class="container-fluid bg-white pb-3 pt-2 ps-3 dashboard-cards-first-row slight-box-shadow-style h-100">
+            <div class="row">
+                <div class="container-fluid">
+                    <div>
+                        <h5>Genderwise Employee</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid pt-3">
+                    <canvas id="genderWiseEmployeeChart" class="dashboardGraphs"></canvas>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="row pt-3">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 pb-3">
+        <div class="container-fluid bg-white pb-3 pt-2 ps-3 dashboard-cards-first-row slight-box-shadow-style h-100">
+            <div class="row">
+                <div class="container-fluid">
+                    <div>
+                        <h5>Agewise Employee</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid pt-3">
+                    <canvas id="ageWiseEmployeeChart" class="dashboardGraphs"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 pb-3">
+        <div class="container-fluid bg-white pb-3 pt-2 ps-3 dashboard-cards-first-row slight-box-shadow-style h-100">
+            <div class="row">
+                <div class="container-fluid">
+                    <div>
+                        <h5>Departmentwise Employee</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid pt-3">
+                    <canvas id="departmentWiseEmployeeChart" class="dashboardGraphs"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 pb-3">
+        <div class="container-fluid bg-white pb-3 pt-2 ps-3 dashboard-cards-first-row slight-box-shadow-style h-100">
+            <div class="row">
+                <div class="container-fluid">
+                    <div>
+                        <h5>Countrywise Employee</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid pt-3">
+                    <canvas id="countryWiseEmployeeChart" class="dashboardGraphs"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="~/js/home.js" asp-append-version="true"></script>
 <script>
     $(document).ready(function () {
-        getDashboardData()
+        getDashboardData();
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            positionClass: "toast-top-right",
+            timeOut: 5000,
+        };
+        if ("@mesage" != "") {
+            if ("@type" == "success") {
+                toastr.success("@mesage");
+            }
+            else {
+                toastr.error("@mesage");
+            }
+        }
     });
 </script>

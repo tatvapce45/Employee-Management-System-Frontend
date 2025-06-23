@@ -16,9 +16,14 @@ public class HomeController(IHttpClientFactory httpClientFactory, TokensHelper t
     private readonly TokensHelper _tokensHelper = tokensHelper;
 
     [HttpGet]
-    public async Task<IActionResult> Index()
+    public IActionResult Index()
     {
         return View();
+    }
+
+    public IActionResult GetCustomDateSelectorModal()
+    {
+        return PartialView("_DashboardDateSelector");
     }
 
     public async Task<JsonResult> GetDashboardData(int timeId=1, string fromDate = "", string toDate = "")
@@ -58,7 +63,7 @@ public class HomeController(IHttpClientFactory httpClientFactory, TokensHelper t
         {
             return View(apiResponse.Data);
         }
-        return BadRequest(apiResponse.ValidationErrors);
+        return BadRequest(apiResponse!.ValidationErrors);
     }
 
     public async Task<IActionResult> UpdateProfile(UpdateProfileDto updateProfileDto)
@@ -67,7 +72,7 @@ public class HomeController(IHttpClientFactory httpClientFactory, TokensHelper t
         var response = await _httpClient.PatchAsync("api/home/UpdateProfile", content);
         var responseString = await response.Content.ReadAsStringAsync();
         var apiResponse = JsonConvert.DeserializeObject<ApiResponse<EmployeeDto>>(responseString);
-        TempData["toastMessage"] = apiResponse.Message;
+        TempData["toastMessage"] = apiResponse!.Message;
         TempData["messageType"] = apiResponse.Success == true ? "success" : "error";
         if (apiResponse is not null && apiResponse.Success)
         {
@@ -92,7 +97,7 @@ public class HomeController(IHttpClientFactory httpClientFactory, TokensHelper t
         var response = await _httpClient.PatchAsync("api/home/ChangePassword", content);
         var responseString = await response.Content.ReadAsStringAsync();
         var apiResponse = JsonConvert.DeserializeObject<ApiResponse<ChangePasswordDto>>(responseString);
-        TempData["toastMessage"] = apiResponse.Message;
+        TempData["toastMessage"] = apiResponse!.Message;
         TempData["messageType"] = apiResponse.Success == true ? "success" : "error";
         if (apiResponse is not null && apiResponse.Success)
         {

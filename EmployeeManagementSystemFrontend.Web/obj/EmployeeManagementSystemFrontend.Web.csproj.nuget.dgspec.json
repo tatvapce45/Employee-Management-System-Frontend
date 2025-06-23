@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\EmployeeManagementSystemFrontend.Web.csproj": {}
+    "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\EmployeeManagementSystemFrontend.Web.csproj": {}
   },
   "projects": {
-    "c:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\EmployeeManagementSystemFrontend.Web.csproj": {
+    "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\EmployeeManagementSystemFrontend.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\EmployeeManagementSystemFrontend.Web.csproj",
+        "projectUniqueName": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\EmployeeManagementSystemFrontend.Web.csproj",
         "projectName": "EmployeeManagementSystemFrontend.Web",
-        "projectPath": "c:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\EmployeeManagementSystemFrontend.Web.csproj",
+        "projectPath": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\EmployeeManagementSystemFrontend.Web.csproj",
         "packagesPath": "C:\\Users\\pce45\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\obj\\",
+        "outputPath": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pce45\\AppData\\Roaming\\NuGet\\NuGet.Config"

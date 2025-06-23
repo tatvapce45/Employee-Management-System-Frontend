@@ -152,6 +152,16 @@ button.accept-policy {
   background-color: #f8f9fa;
 }
 
+#navbarMainLayout{
+  position: sticky;
+    top: 0px;
+    z-index: 4;
+}
+
+#offcanvasWithBothOptions{
+  width: 250px;
+  background-color: #2e0a7d;
+}
 
 
 @media only screen and (max-width: 1205px) {

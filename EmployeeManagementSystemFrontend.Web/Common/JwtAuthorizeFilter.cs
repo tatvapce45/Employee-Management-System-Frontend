@@ -4,14 +4,9 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace EmployeeManagementSystemFrontend.Web.Common
 {
-    public class JwtAuthorizeFilter : IAsyncActionFilter
+    public class JwtAuthorizeFilter(TokensHelper tokensHelper) : IAsyncActionFilter
     {
-        private readonly TokensHelper _tokensHelper;
-
-        public JwtAuthorizeFilter(TokensHelper tokensHelper)
-        {
-            _tokensHelper = tokensHelper;
-        }
+        private readonly TokensHelper _tokensHelper = tokensHelper;
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
