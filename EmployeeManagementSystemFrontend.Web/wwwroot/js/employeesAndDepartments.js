@@ -45,6 +45,7 @@ function loadEmployees(
   $.ajax({
     url: "/EmployeesAndDepartments/GetEmployees",
     type: "POST",
+    cache:false,
     contentType: "application/json",
     data: JSON.stringify({
       departmentId: departmentId,
@@ -56,6 +57,7 @@ function loadEmployees(
     }),
     success: function (response) {
       $("#employeesAndDepartmentsEmployeeLoaderDiv").html(response);
+      $("#employeesLoader").hide();
     },
     error: function (xhr, status, error) {
       console.error("Failed to load employees:", error);

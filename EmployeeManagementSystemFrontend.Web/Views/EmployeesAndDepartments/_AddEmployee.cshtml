@@ -4,7 +4,12 @@
     <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content position-relative">
+                <div id="addEmployeesLoader" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.7); z-index: 1051; justify-content: center; align-items: center;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="addEmployeeModalLabel">Add New Employee</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -159,49 +164,47 @@
 </form>
 <script>
     $(document).ready(function () {
-        loadDepartmentsJson();
-        loadCountries();
-        $("#addEmployeeCountryId").change(function () {
-            var countryId = $(this).val();
-            $("#addEmployeeStateId").html('<option value="">Select State</option>');
+    loadDepartmentsJson();
+    loadCountries();
 
-            if (countryId) {
-                loadStates(countryId);
-            }
-        });
-
-        $("#addEmployeeStateId").change(function () {
-            var stateId = $(this).val();
-            $("#addEmployeeCityId").html('<option value="">Select City</option>');
-
-            if (stateId) {
-                loadCities(stateId);
-            }
-        });
-
-        $('#addEmployeeForm').on('submit', function (e) {
-            e.preventDefault();
-            if ($(this).valid()) {
-                $.ajax({
-                    url: '@Url.Action("AddEmployee", "EmployeesAndDepartments")',
-                    type: 'POST',
-                    data: $('#addEmployeeForm').serialize(),
-                    success: function (response) {
-                        if (response.messageType=='success') {
-                            $("#addEmployeeModal").modal("hide");
-                            toastr.success(response?.toastMessage);
-                        }
-                        else if(response.messageType=='error')
-                        {
-                            toastr.error(response.toastMessage);
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        toastr.error(error);
-                        console.error('AJAX error: ' + status + ' ' + error);
-                    }
-                });
-            }
-        });
+    $("#addEmployeeCountryId").change(function () {
+        var countryId = $(this).val();
+        $("#addEmployeeStateId").html('<option value="">Select State</option>');
+        if (countryId) loadStates(countryId);
     });
+
+    $("#addEmployeeStateId").change(function () {
+        var stateId = $(this).val();
+        $("#addEmployeeCityId").html('<option value="">Select City</option>');
+        if (stateId) loadCities(stateId);
+    });
+
+    $('#addEmployeeForm').on('submit', function (e) {
+        e.preventDefault();
+
+        if ($(this).valid()) {
+            $("#addEmployeesLoader").css("display", "flex");
+            $.ajax({
+                url: '@Url.Action("AddEmployee", "EmployeesAndDepartments")',
+                type: 'POST',
+                data: $('#addEmployeeForm').serialize(),
+                success: function (response) {
+                    $("#addEmployeesLoader").hide();
+                    if (response.messageType == 'success') {
+                        $("#addEmployeeModal").modal("hide");
+                        toastr.success(response?.toastMessage);
+                    } else if (response.messageType == 'error') {
+                        toastr.error(response.toastMessage);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    toastr.error(error);
+                    console.error('AJAX error: ' + status + ' ' + error);
+                    $("#addEmployeesLoader").hide();
+                }
+            });
+        }
+    });
+});
+
 </script>

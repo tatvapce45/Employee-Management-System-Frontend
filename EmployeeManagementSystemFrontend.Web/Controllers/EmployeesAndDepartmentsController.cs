@@ -165,6 +165,9 @@ namespace EmployeeManagementSystemFrontend.Web.Controllers
         public async Task<IActionResult> AddEmployee(CreateEmployeeDto createEmployeeDto)
         {
             createEmployeeDto.RoleId = 3;
+            string htmlBody = System.IO.File.ReadAllText("Views/EmployeesAndDepartments/EmailBody.cshtml");
+            htmlBody = htmlBody.Replace("{{employeeName}}", createEmployeeDto.Name);
+            createEmployeeDto.EmailBody=htmlBody;
             var content = new StringContent(JsonConvert.SerializeObject(createEmployeeDto), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync("api/employee/CreateEmployee", content);
             var responseString = await response.Content.ReadAsStringAsync();

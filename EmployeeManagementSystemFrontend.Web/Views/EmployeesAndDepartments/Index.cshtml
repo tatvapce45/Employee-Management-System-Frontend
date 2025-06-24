@@ -2,6 +2,13 @@
     ViewData["title"] = "Employees And Departments";
 }
 <link rel="stylesheet" href="~/css/employeesAndDepartments.css" asp-append-version="true" />
+<div id="employeesLoader">
+    <div class="d-flex align-items-center h-100 justify-content-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
 <div class="row mt-3 ps-3">
     <div class="container-fluid">
         <h1 class="content-header">Employees</h1>
@@ -29,6 +36,7 @@
     <script src="~/js/employeesAndDepartments.js" asp-append-version="true"></script>
     <script>
         $(document).ready(function () {
+            $("#employeesLoader").show();
             loadDepartmentsContainer();
             loadEmployeesContainer();
         });

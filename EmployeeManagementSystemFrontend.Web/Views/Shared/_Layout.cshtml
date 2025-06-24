@@ -29,10 +29,12 @@
         <div id="mySideBar" class="side-bar pt-1">
             <div class="container-fluid text-white">
                 <div class="row d-flex align-items-center justify-content-start">
-                    <div class="d-flex align-items-center justify-content-center">
-                        <h1 class="d-inline text-white">Side</h1>
-                        <h1 class="pe-2 sidebar-header">bar</h1>
-                        <div id="sidebarLeftIcon" onclick="closeNavbar()">
+                    <div class="d-flex align-items-center justify-content-between ps-5 pe-3">
+                        <div>
+                            <h1 class="d-inline text-white">Side</h1>
+                            <h1 class="pe-2 sidebar-header d-inline">bar</h1>
+                        </div>
+                        <div id="sidebarLeftIcon" class="pt-1" onclick="closeNavbar()">
                             <img src="~/images/chevron-left.svg" style="height: 25px;width:25px" />
                         </div>
                     </div>
@@ -54,6 +56,24 @@
                         <div class="col d-flex align-items-center gap-2">
                             <img src="/images/person-workspace.svg" alt="employees" class="menubarIcons">
                             <span>Employees</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="row menuRow @(currentController == "Attendance" ? "checked-element" : "")">
+                    <a asp-action="Index" asp-controller="Attendance" class="menuRowLinks"
+                        style="text-decoration: none;color:inherit;font-size: medium;letter-spacing: 0.08em;">
+                        <div class="col d-flex align-items-center gap-2">
+                            <img src="/images/attendance.svg" alt="attendance" class="menubarIcons">
+                            <span>Attendance</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="row menuRow @(currentController == "Leave" ? "checked-element" : "")">
+                    <a asp-action="Index" asp-controller="Leave" class="menuRowLinks"
+                        style="text-decoration: none;color:inherit;font-size: medium;letter-spacing: 0.08em;">
+                        <div class="col d-flex align-items-center gap-2">
+                            <img src="/images/leave.svg" alt="leave" class="menubarIcons">
+                            <span>Leave</span>
                         </div>
                     </a>
                 </div>
@@ -92,9 +112,9 @@
                 </div>
             </div>
         </div>
-        <main id="main" class="pb-3">
-            <div class="container-fluid p-0">
-                <nav class="navbar navbar-expand-lg px-3" id="navbarMainLayout">
+        <main id="main" class="pb-3" style="overflow: visible;">
+            <div class="container-fluid p-0" id="navbarMainLayout">
+                <nav class="navbar navbar-expand-lg px-3" id="">
                     <div class="d-flex align-items-center justify-content-between w-100">
                         <div class="navProfileIcon">
                             <img src="/images/menu-bar.svg" alt="menubar" onclick="openNavbar()" id="menuToggleIcon">
@@ -192,6 +212,7 @@
             </div>
         </main>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
@@ -223,6 +244,7 @@
         });
     </script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 
 </html>

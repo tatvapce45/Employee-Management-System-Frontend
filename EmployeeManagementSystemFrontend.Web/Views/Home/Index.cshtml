@@ -4,6 +4,13 @@
     var type = TempData["messageType"];
 }
 <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+<div id="dashboardLoader">
+    <div class="d-flex align-items-center h-100 justify-content-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
 <div class="row mt-3">
     <div class="col-12">
         <div class="container-fluid d-flex justify-content-between align-items-center p-0">
@@ -121,6 +128,8 @@
 <script src="~/js/home.js" asp-append-version="true"></script>
 <script>
     $(document).ready(function () {
+        $("#dashboardLoader").show();
+        getDashboardData();
         toastr.options = {
             closeButton: true,
             progressBar: true,
@@ -135,6 +144,6 @@
                 toastr.error("@mesage");
             }
         }
-        getDashboardData();
+
     });
 </script>

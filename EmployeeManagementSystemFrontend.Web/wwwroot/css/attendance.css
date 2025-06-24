@@ -1,0 +1,45 @@
+.attendance-table-dates-header {
+    background-color: rgb(222, 226, 230, 0.3) !important;
+}
+
+.attendance-table-attendance-boxes {
+    background-color: rgb(222, 226, 230, 0.3) !important;
+    height: 41px; /* Fixed height for the boxes */
+    position: relative; /* Position context for the dropdown */
+}
+
+.attendance-table-container {
+    border: 1px solid #dee2e6;
+    border-bottom: none;
+}
+
+.weekend {
+    background-color: rgb(222, 226, 230, 0.3) !important;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.present {
+    background-color: lightgreen !important;
+}
+
+.absent {
+    background-color: lightcoral !important;
+}
+
+.attendance-dropdown {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: none;
+}
+
+.attendance-select {
+    width: 100%; 
+    padding: 5px;
+    box-sizing: border-box;
+}

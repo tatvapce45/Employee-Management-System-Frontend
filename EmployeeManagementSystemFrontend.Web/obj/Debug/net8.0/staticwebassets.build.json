@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gxsHkLllwzkXQOSMNx/u5GCyOd4l/5bBwxTufy8OBRo=",
+  "Hash": "UcBKIiTyanPHgLFoat9uJdNUvKMIiWrXWNX3au8W5OA=",
   "Source": "EmployeeManagementSystemFrontend.Web",
   "BasePath": "_content/EmployeeManagementSystemFrontend.Web",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\EmployeeManagementSystemFrontend.Web.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\css\\attendance.css",
+      "SourceId": "EmployeeManagementSystemFrontend.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\",
+      "BasePath": "_content/EmployeeManagementSystemFrontend.Web",
+      "RelativePath": "css/attendance.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\attendance.css"
     },
     {
       "Identity": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\css\\employeesAndDepartments.css",
@@ -205,6 +224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\arrow-clockwise.svg"
+    },
+    {
+      "Identity": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\attendance.svg",
+      "SourceId": "EmployeeManagementSystemFrontend.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\",
+      "BasePath": "_content/EmployeeManagementSystemFrontend.Web",
+      "RelativePath": "images/attendance.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\attendance.svg"
     },
     {
       "Identity": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\bell-fill.svg",
@@ -509,6 +547,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\eye-slash-fill.svg"
+    },
+    {
+      "Identity": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\leave.svg",
+      "SourceId": "EmployeeManagementSystemFrontend.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\",
+      "BasePath": "_content/EmployeeManagementSystemFrontend.Web",
+      "RelativePath": "images/leave.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\leave.svg"
     },
     {
       "Identity": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\leftArrowForPaginationNew.svg",

@@ -30,3 +30,15 @@
   #myProfileCancelBtn{
     text-decoration: none;
   }
+
+  #dashboardLoader{
+    position: fixed;
+    top: 56px;
+    left: 250px;
+    height: 100%;
+    width: 1630px;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+  }

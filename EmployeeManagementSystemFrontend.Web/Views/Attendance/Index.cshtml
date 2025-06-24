@@ -1,0 +1,99 @@
+@{
+    int year = 2025;
+    int month = 6;
+    int daysInMonth = DateTime.DaysInMonth(year, month);
+}
+
+<link rel="stylesheet" href="~/css/attendance.css" asp-append-version="true" />
+<div class="row mt-3 ps-3">
+    <div class="container-fluid">
+        <h1 class="content-header">Attendance</h1>
+    </div>
+</div>
+<div class="row px-4">
+    <div class="container-fluid attendance-table-container px-0">
+        <div class="row">
+            <div class="container-fluid py-2 ps-4">
+                <span>June-2025</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <table class="table table-bordered m-0">
+                    <thead>
+                        <tr>
+                            @for (int i = 1; i <= daysInMonth; i++)
+                            {
+                                var date = new DateTime(year, month, i);
+                                var dayLetter = date.DayOfWeek.ToString().Substring(0, 1);
+                                <th class="attendance-table-dates-header text-center">
+                                    <span>@i</span><br />
+                                    <span>@dayLetter</span>
+                                </th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @for (int i = 1; i <= daysInMonth; i++)
+                            {
+                                var date = new DateTime(year, month, i);
+                                var isWeekend = date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+
+                                string status = "";
+                                string statusClass = "";
+
+                                if (isWeekend)
+                                {
+                                    statusClass = "weekend";
+                                }
+                                else
+                                {
+                                    statusClass = "clickable";
+                                }
+
+                                <td class="text-center attendance-table-attendance-boxes @(statusClass)" data-day="@i"
+                                    data-weekend="@isWeekend">
+                                    <span>@status</span>
+                                    @if (!isWeekend)
+                                    {
+                                        <div class="attendance-dropdown" style="display:none;">
+                                            <select class="attendance-select">
+                                                <option value="">Select</option>
+                                                <option value="P">Present</option>
+                                                <option value="A">Absent</option>
+                                            </select>
+                                        </div>
+                                    }
+                                </td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.attendance-table-attendance-boxes').on('click', function () {
+            var isWeekend = $(this).data('weekend');
+            if (isWeekend=="False") {
+                $('.attendance-dropdown').hide();
+
+                var dropdown = $(this).find('.attendance-dropdown');
+                dropdown.show();
+
+                $(this).find('.attendance-select').on('change', function () {
+                    var selectedValue = $(this).val(); 
+                    var statusClass = selectedValue == 'P' ? 'present' : 'absent';
+                    var statusText = selectedValue == 'P' ? 'P' : 'A';
+                    $(this).closest('td').removeClass('clickable').removeClass('present').removeClass('absent').addClass(statusClass).find('span').text(statusText);
+                    $(this).closest('td').removeClass('clickable').addClass(statusClass).find('span').text(statusText);
+                    dropdown.hide();
+                });
+            }
+        });
+    });
+
+</script>

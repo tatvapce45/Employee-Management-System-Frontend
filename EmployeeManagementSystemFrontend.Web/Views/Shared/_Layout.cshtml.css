@@ -120,7 +120,8 @@ button.accept-policy {
 }
 
 .navbar {
-  background-color: rgb(46, 10, 125, 0.2);
+  background-color: rgb(205, 191, 228)
+  ;
 }
 
 .dropstart .dropdown-menu[data-bs-popper] {
@@ -153,9 +154,9 @@ button.accept-policy {
 }
 
 #navbarMainLayout{
-  position: sticky;
-    top: 0px;
-    z-index: 4;
+  position: sticky !important;
+  top: 0px;
+  z-index: 4;
 }
 
 #offcanvasWithBothOptions{

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\EmployeeManagementSystemFrontend.Web.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\css\\attendance.css",
+      "PackagePath": "staticwebassets\\css\\attendance.css"
+    },
+    {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\css\\employeesAndDepartments.css",
       "PackagePath": "staticwebassets\\css\\employeesAndDepartments.css"
     },
@@ -35,6 +39,10 @@
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\arrow-clockwise.svg",
       "PackagePath": "staticwebassets\\images\\arrow-clockwise.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\attendance.svg",
+      "PackagePath": "staticwebassets\\images\\attendance.svg"
     },
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\bell-fill.svg",
@@ -99,6 +107,10 @@
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\eye-slash-fill.svg",
       "PackagePath": "staticwebassets\\images\\eye-slash-fill.svg"
+    },
+    {
+      "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\leave.svg",
+      "PackagePath": "staticwebassets\\images\\leave.svg"
     },
     {
       "Id": "C:\\Users\\pce45\\Desktop\\Employee Management System Frontend\\EmployeeManagementSystemFrontend.Web\\wwwroot\\images\\leftArrowForPaginationNew.svg",

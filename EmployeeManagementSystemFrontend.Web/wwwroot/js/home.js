@@ -132,6 +132,7 @@ function getDashboardData(timeId, fromDate, toDate) {
         }
         return colors;
       }
+      $("#dashboardLoader").hide();
     },
   });
 }

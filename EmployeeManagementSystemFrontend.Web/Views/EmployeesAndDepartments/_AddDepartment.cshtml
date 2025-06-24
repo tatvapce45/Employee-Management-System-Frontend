@@ -4,7 +4,8 @@
 }
 <partial name="_ValidationScriptsPartial" />
 <form id="addDepartmentForm">
-    <div class="modal fade" id="addDepartmentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addDepartmentModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -45,12 +46,11 @@
                     type: 'POST',
                     data: $('#addDepartmentForm').serialize(),
                     success: function (response) {
-                        if (response.messageType=='success') {
+                        if (response.messageType == 'success') {
                             $("#addDepartmentModal").modal("hide");
                             toastr.success(response?.toastMessage);
                         }
-                        else if(response.messageType=='error')
-                        {
+                        else if (response.messageType == 'error') {
                             toastr.error(response.toastMessage);
                         }
                         loadDepartments();

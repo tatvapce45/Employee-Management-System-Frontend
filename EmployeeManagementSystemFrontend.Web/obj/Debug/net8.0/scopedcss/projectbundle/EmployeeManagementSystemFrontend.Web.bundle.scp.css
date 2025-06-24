@@ -121,7 +121,8 @@ button.accept-policy[b-dpfr1pe2k8] {
 }
 
 .navbar[b-dpfr1pe2k8] {
-  background-color: rgb(46, 10, 125, 0.2);
+  background-color: rgb(205, 191, 228)
+  ;
 }
 
 .dropstart .dropdown-menu[data-bs-popper][b-dpfr1pe2k8] {
@@ -154,9 +155,9 @@ button.accept-policy[b-dpfr1pe2k8] {
 }
 
 #navbarMainLayout[b-dpfr1pe2k8]{
-  position: sticky;
-    top: 0px;
-    z-index: 4;
+  position: sticky !important;
+  top: 0px;
+  z-index: 4;
 }
 
 #offcanvasWithBothOptions[b-dpfr1pe2k8]{

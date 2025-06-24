@@ -1,4 +1,14 @@
-
+#employeesLoader {
+  position: fixed;
+  top: 56px;
+  left: 250px;
+  height: 100%;
+  width: 1630px;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+}
 
 .container-departments {
   padding: 0%;
@@ -6,17 +16,16 @@
 
 #departmentsAndEmployeesDepartmentsContainer {
   height: 530px;
-  background-color: rgb(46, 10, 125,0.07);
+  background-color: rgb(46, 10, 125, 0.07);
   border-radius: 12px;
 }
 
-.sectionsScrollContainer
-{
+.sectionsScrollContainer {
   max-height: 400px;
   overflow-y: auto;
 }
 
-#employeeSearchInput{
+#employeeSearchInput {
   box-shadow: none;
 }
 
@@ -31,34 +40,33 @@
   position: relative;
 }
 
-.plus-square-icon{
-    height: 60px;
-    width: 60px;
+.plus-square-icon {
+  height: 60px;
+  width: 60px;
 }
 
-.employees-container{
+.employees-container {
   height: 530px;
-  background-color: rgb(46, 10, 125,0.07);
+  background-color: rgb(46, 10, 125, 0.07);
   border-radius: 12px;
 }
 
-.employees-list-container
-{
+.employees-list-container {
   max-height: 344px;
   overflow-y: auto;
 }
 
-#addEmployeePassword{
+#addEmployeePassword {
   box-shadow: none;
 }
 
-.employees-checkboxes:checked{
+.employees-checkboxes:checked {
   background-color: #2e0a7d;
   border-color: #2e0a7d;
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #2e0a7d;
 }
 
-#employeesMainCheckbox:checked{
+#employeesMainCheckbox:checked {
   background-color: #2e0a7d;
   border-color: #2e0a7d;
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #2e0a7d;
@@ -67,4 +75,16 @@
 .exportIcon {
   height: 25px;
   width: 25px;
+}
+
+#addEmployeesLoader {
+  display: none;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 1051;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
